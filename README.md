@@ -30,11 +30,6 @@ Deliverables
 * Domain Model: A representation of the application's core entities and their relationships. Accompanied by a descriptive explanation.
 * Report: Our detailed report, including the aforementioned elements, can be found here.
 
-Submission:
-* The report is available in the docs/part1 directory of our GitHub repository.
-* Use Case Diagram
-* Domain Model Diagram
-
 ## Part 2 
 Deliverables
 1. Patterns Implemented:
@@ -61,11 +56,6 @@ Deliverables
   *Username: [Admin Username]
   *Password: [Admin Password]
 *Additional instructions on using existing data are provided. Make sure to refer to the provided data samples for a comprehensive understanding.
-
-Submission:
-* The complete application has been deployed on Render and can be accessed here.
-* The detailed SAD Report and other relevant documents are available in the docs/part2 directory of our GitHub repository.
-* Database details and data samples are documented in docs/data-sample.
 
 ## Part 3
 Deliverables
@@ -94,5 +84,3 @@ Deliverables
 * Performance Report:
   * A detailed discourse on system performance.
   * This report can be found at GitHub (docs/part4).
-Submission :
-  * For source code & reports: We'll evaluate your GitHub RELEASE TAGS for grading purposes. Ensure the tags are generated, deployed, and added to your checklist before the deadline.
