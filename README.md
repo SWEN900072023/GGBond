@@ -14,10 +14,10 @@
 
 This is an online ticket booking platform for live music events in Australia. The application features:
 
-    An Administrator overseeing venue management and all system users.
-    Event Planners who list and manage their events. They can adjust event details and ticket prices.
-    Customers who search and book tickets, either by act name or through a 6-month calendar view.
-    Venues, managed by the Administrator, have various sections like mosh and VIP, with prices varying by section and artist. 
+* An Administrator overseeing venue management and all system users.
+* Event Planners who list and manage their events. They can adjust event details and ticket prices.
+* Customers who search and book tickets, either by act name or through a 6-month calendar view.
+* Venues, managed by the Administrator, have various sections like mosh and VIP, with prices varying by section and artist. 
 No payment system is integrated; simply reserving a ticket confirms a booking.
 
 
@@ -25,8 +25,8 @@ No payment system is integrated; simply reserving a ticket confirms a booking.
 # Instructions for Github documentation
 ## Part 1
 Deliverables
-    * Use Case Diagram: Illustrates interactions between actors and use cases, including relevant relationships. Available in the report within docs/part1.
-    * Use Case Descriptions: Each use case is detailed with associated actors and a high-level description, in line with Appendix E – Simplified use cases.
+* Use Case Diagram: Illustrates interactions between actors and use cases, including relevant relationships. Available in the report within docs/part1.
+* Use Case Descriptions: Each use case is detailed with associated actors and a high-level description, in line with Appendix E – Simplified use cases.
     * Domain Model: A representation of the application's core entities and their relationships. Accompanied by a descriptive explanation.
     * Report: Our detailed report, including the aforementioned elements, can be found here.
 
