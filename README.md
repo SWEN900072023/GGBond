@@ -1,4 +1,4 @@
-# PA-Koala
+# GGBond
   Project Name: Music Event System
 
 # Team Members
@@ -27,79 +27,74 @@ No payment system is integrated; simply reserving a ticket confirms a booking.
 Deliverables
 * Use Case Diagram: Illustrates interactions between actors and use cases, including relevant relationships. Available in the report within docs/part1.
 * Use Case Descriptions: Each use case is detailed with associated actors and a high-level description, in line with Appendix E – Simplified use cases.
-    * Domain Model: A representation of the application's core entities and their relationships. Accompanied by a descriptive explanation.
-    * Report: Our detailed report, including the aforementioned elements, can be found here.
+* Domain Model: A representation of the application's core entities and their relationships. Accompanied by a descriptive explanation.
+* Report: Our detailed report, including the aforementioned elements, can be found here.
 
 Submission:
-
-    * The report is available in the docs/part1 directory of our GitHub repository.
-    * Please refer to the Canvas assignments for the Part1A checklist (Appendix A – Checklist for Part1 Deliverable).
+* The report is available in the docs/part1 directory of our GitHub repository.
+* Use Case Diagram
+* Domain Model Diagram
 
 ## Part 2 
 Deliverables
 1. Patterns Implemented:
-        Domain model
-        Data mapper
-        Unit of work
-        Lazy load
-        Identity field
-        Foreign key mapping
-        Association table mapping
-        Embedded value
-        A chosen inheritance pattern
-        Authentication and Authorization
-
-2. Git Release Tag: The tag for this deliverable is SWEN90007_2023_Part2_[Your Team Name]. Ensure this tag is created before the submission deadline.
-
-3. Software Architecture Design (SAD) Report:
-        Contains the class diagram of our application.
-        Detailed description of patterns used with contextual examples, supplemented by relevant diagrams.
-        Design rationale for patterns like unit of work and lazy load.
-        The full report is available here.
+* Domain model
+* Data mapper
+* Unit of work
+* Lazy load
+* Identity field
+* Foreign key mapping
+* Association table mapping
+* Embedded value
+* A chosen inheritance pattern
+* Authentication and Authorization
+2. Software Architecture Design (SAD) Report:
+* Contains the class diagram of our application.
+* Detailed description of patterns used with contextual examples, supplemented by relevant diagrams.
+* Design rationale for patterns like unit of work and lazy load.
+* The full report is available here.
 
 4. Database & Sample Data: Our deployed app includes a populated database with realistic data samples, essential for testing. Database information and data samples can be found here.
 
 5. Usage Instructions:
-        *Administrator Login:
-            **Username: [Admin Username]
-            **Password: [Admin Password]
-        *Additional instructions on using existing data are provided. Make sure to refer to the provided data samples for a comprehensive understanding.
+* Administrator Login:
+  *Username: [Admin Username]
+  *Password: [Admin Password]
+*Additional instructions on using existing data are provided. Make sure to refer to the provided data samples for a comprehensive understanding.
 
 Submission:
-
-    * The complete application has been deployed on Render and can be accessed here.
-    * The detailed SAD Report and other relevant documents are available in the docs/part2 directory of our GitHub repository.
-    * Please refer to the Canvas assignments for the Part2 Checklist (Appendix B – Checklist for Part2 Deliverable).
-    * Database details and data samples are documented in docs/data-sample.
-
+* The complete application has been deployed on Render and can be accessed here.
+* The detailed SAD Report and other relevant documents are available in the docs/part2 directory of our GitHub repository.
+* Database details and data samples are documented in docs/data-sample.
 
 ## Part 3
 Deliverables
 1. Concurrency Implementation:
-        *We've addressed multiple concurrency issues specific to our application domain. Details of each identified concurrency problem and its solution can be found in our SAD Report.
+*We've addressed multiple concurrency issues specific to our application domain. Details of each identified concurrency problem and its solution can be found in our SAD Report.
 2. Software Architecture Design (SAD) Report:
-        Contains the updated class diagram with highlighted changes.
-        Detailed discussion on identified concurrency issues, our chosen patterns and mechanisms, and the rationale behind our decisions.
-        Details of our testing strategy and the results of the concurrency tests.
-        The full report is available here.
+* Contains the updated class diagram with highlighted changes.
+* Detailed discussion on identified concurrency issues, our chosen patterns and mechanisms, and the rationale behind our decisions.
+* Details of our testing strategy and the results of the concurrency tests.
+The full report is available here.
 
-3. Database & Sample Data: Our application includes a populated database with realistic data samples essential for testing. Database details and sample data can be found here.
-
-5. Usage Instructions:
-        Administrator Login:
-            Username: [Admin Username]
-            Password: [Admin Password]
-        Follow the provided data samples to comprehend the application's data flow. Ensure you refer to the data samples for understanding.
+3. Database & Sample Data: Our application includes a populated database with realistic data samples essential for testing. Database details and sample data can be found here. 
+4. Usage Instructions:
+* Administrator Login:
+  * Username: [Admin Username]
+  * Password: [Admin Password]
+Follow the provided data samples to comprehend the application's data flow. Ensure you refer to the data samples for understanding.
 
 Additional Information:
-
-    The complete application has been deployed on Render and can be accessed here.
-    All relevant documents and reports are available in the docs/part3 directory of our GitHub repository.
-    For the Part3 Checklist, please refer to the Canvas assignments.
-    Database and data sample details are documented in docs/data-sample.
+* The complete application has been deployed on Render and can be accessed here.
+* All relevant documents and reports are available in the docs/part3 directory of our GitHub repository.
+* Database and data sample details are documented in docs/data-sample.
 
 ## Part 4
-* We completed high fidelity, 
-* Introduced how to use high fidelity to customers, this is our acceptance tests. Then we received feedback from customers, and upgraded high fidelity based on the feedback.
-* Create the mood board. 
-* We made the slide and finished the final presentation.
+1. Performance Report:
+* A detailed discourse on system performance.
+* This report can be found at GitHub (docs/part4).
+
+2. Checklist Submission:
+* Make sure to submit the Part4 checklist (Appendix D – Checklist for Part4 Deliverable) to Canvas assignments.
+Submission Details:
+* For source code & reports: We'll evaluate your GitHub RELEASE TAGS for grading purposes. Ensure the tags are generated, deployed, and added to your checklist before the deadline.
