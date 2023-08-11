@@ -94,5 +94,5 @@ Deliverables
 * Performance Report:
   * A detailed discourse on system performance.
   * This report can be found at GitHub (docs/part4).
-* Submission Details:
+Submission :
   * For source code & reports: We'll evaluate your GitHub RELEASE TAGS for grading purposes. Ensure the tags are generated, deployed, and added to your checklist before the deadline.
