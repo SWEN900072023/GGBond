@@ -3,7 +3,7 @@
 
 # Team Members
 
-|  Name   | Student ID  |  Role   | E-mail  |
+|  Name   | Student ID  |  E-mail  |
 |  ----  | ----  |  ----  | ----  |
 | Jie Zhou  | 1442449 | qiwang4@student.unimelb.edu.au |
 | Baorui Chen  | 1320469 | juxu1@student.unimelb.edu.au  |
@@ -25,7 +25,7 @@ No payment system is integrated; simply reserving a ticket confirms a booking.
 # Instructions for Github documentation
 ## Part 1
 Deliverables
-* Use Case Diagram: Illustrates interactions between actors and use cases, including relevant relationships. Available in the report within docs/part1.
+* [Use Case Diagram](https://github.com/SWEN900072023/GGBond/blob/main/docs/part1/domain_model.png): Illustrates interactions between actors and use cases, including relevant relationships. Available in the report within docs/part1.
 * Use Case Descriptions: Each use case is detailed with associated actors and a high-level description, in line with Appendix E – Simplified use cases.
 * Domain Model: A representation of the application's core entities and their relationships. Accompanied by a descriptive explanation.
 * Report: Our detailed report, including the aforementioned elements, can be found here.
