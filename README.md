@@ -5,10 +5,10 @@
 
 |  Name   | Student ID  |  Role   | E-mail  |
 |  ----  | ----  |  ----  | ----  |
-| Jie Zhou  | 1442449 | Product Owner  | qiwang4@student.unimelb.edu.au |
-| Baorui Chen  | 1320469 | Scrum Master | juxu1@student.unimelb.edu.au  |
+| Jie Zhou  | 1442449 | qiwang4@student.unimelb.edu.au |
+| Baorui Chen  | 1320469 | juxu1@student.unimelb.edu.au  |
 | liuming Teng | 1292608 | liumingt@student.unimelb.edu.au |
-| Linjing Bi  | 1369370 | linjingb@student.unimelb.edu.au|
+| Linjing Bi  | 1369370 | linjingb@student.unimelb.edu.au |
 
 # Description
 
@@ -17,8 +17,7 @@ This is an online ticket booking platform for live music events in Australia. Th
     An Administrator overseeing venue management and all system users.
     Event Planners who list and manage their events. They can adjust event details and ticket prices.
     Customers who search and book tickets, either by act name or through a 6-month calendar view.
-
-Venues, managed by the Administrator, have various sections like mosh and VIP, with prices varying by section and artist. No payment system is integrated; simply reserving a ticket confirms a booking.
+    Venues, managed by the Administrator, have various sections like mosh and VIP, with prices varying by section and artist. No payment system is integrated; simply reserving a ticket confirms a booking.
 
 
 
