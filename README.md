@@ -90,11 +90,9 @@ Additional Information:
 * Database and data sample details are documented in docs/data-sample.
 
 ## Part 4
-1. Performance Report:
-* A detailed discourse on system performance.
-* This report can be found at GitHub (docs/part4).
-
-2. Checklist Submission:
-* Make sure to submit the Part4 checklist (Appendix D – Checklist for Part4 Deliverable) to Canvas assignments.
-Submission Details:
-* For source code & reports: We'll evaluate your GitHub RELEASE TAGS for grading purposes. Ensure the tags are generated, deployed, and added to your checklist before the deadline.
+Deliverables
+* Performance Report:
+  * A detailed discourse on system performance.
+  * This report can be found at GitHub (docs/part4).
+* Submission Details:
+  * For source code & reports: We'll evaluate your GitHub RELEASE TAGS for grading purposes. Ensure the tags are generated, deployed, and added to your checklist before the deadline.
