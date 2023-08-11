@@ -29,19 +29,19 @@ Once you decide on your project description, identify the use cases necessary to
 requirement specification for the application users.
 Deliverables:
 1. A report, in pdf format, that includes the following:
-• Your team’s name, team members’ names, student ids, unimelb usernames, github
+* Your team’s name, team members’ names, student ids, unimelb usernames, github
 usernames and emails.
-• A use case diagram that illustrates the interaction between the actors and the use cases,
+* A use case diagram that illustrates the interaction between the actors and the use cases,
 as well as any relevant relationship between use cases.
-• A simple description of each use case. Each use case must contain the list of actors
+* A simple description of each use case. Each use case must contain the list of actors
 associated with the use case, a high-level description of the use case (Appendix E –
 Simplified use cases).
-• A domain model with an explanation of it (description for domain model).
-• A Git release tag: you must create a release tag in your Git repository for this deliverable
+* A domain model with an explanation of it (description for domain model).
+* A Git release tag: you must create a release tag in your Git repository for this deliverable
 in the following format: SWEN90007_2022_Part1_<team name>1. The tag must be
 created before the submission deadline as this will be used to assess your deliverable (no
 exceptions). The created release tag must be added to your report.
-• This report must be available in your GitHub (docs/part1).
+* This report must be available in your GitHub (docs/part1).
 2. Part1A checklist (Appendix A – Checklist for Part1 Deliverable) must be submitted to Canvas
 assignments.
 
