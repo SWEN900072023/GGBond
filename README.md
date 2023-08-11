@@ -1,25 +1,24 @@
 # PA-Koala
-  Project Name: Participation Feedback
-  
-# Stakeholders
+  Project Name: Music Event System
 
- |  Name   | Email  |  Role   |
- |  ----  | ----  |  ----  |
- | Andrew Cutting  | andrew.cutting@unimelb.edu.au | Client  |
- | Naveed Ali  | naveed.ali@unimelb.edu.au | Supervisor |
-  
 # Team Members
 
 |  Name   | Student ID  |  Role   | E-mail  |
 |  ----  | ----  |  ----  | ----  |
-| Qian Wang  | 1338930 | Product Owner  | qiwang4@student.unimelb.edu.au |
-| Jun Xu  | 1074120 | Scrum Master | juxu1@student.unimelb.edu.au  |
-| Jiyang Xin  | 1322761 | Documents & Minutes Lead  | jiyxin@student.unimelb.edu.au |
-| Linjing Bi  | 1369370 | Design Lead  | linjingb@student.unimelb.edu.au |
-| Baorui Chen  | 1320469 | User Interface & Experience Lead  | baoruic@student.unimelb.edu.au |
+| Jie Zhou  | 1442449 | Product Owner  | qiwang4@student.unimelb.edu.au |
+| Baorui Chen  | 1320469 | Scrum Master | juxu1@student.unimelb.edu.au  |
+| liuming Teng | 1292608 | liumingt@student.unimelb.edu.au |
+| Linjing Bi  | 1369370 | linjingb@student.unimelb.edu.au|
 
 # Description
-The project is to develop software/pipeline/database that can generate participation data that represents the level of participation a student has in a subject’s activities and materials. The software can improve student engagement at university by supporting the development of regular wrap-up style feedback for students, which could help students work with reflective exercises to encourage self awareness of and improvement to participation and engagement at university.
+
+This is an online ticket booking platform for live music events in Australia. The application features:
+
+    An Administrator overseeing venue management and all system users.
+    Event Planners who list and manage their events. They can adjust event details and ticket prices.
+    Customers who search and book tickets, either by act name or through a 6-month calendar view.
+
+Venues, managed by the Administrator, have various sections like mosh and VIP, with prices varying by section and artist. No payment system is integrated; simply reserving a ticket confirms a booking.
 
 
 
