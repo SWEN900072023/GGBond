@@ -24,6 +24,7 @@ No payment system is integrated; simply reserving a ticket confirms a booking.
 
 # Instructions for Github documentation
 ## Part 1
+Deliverables
     * Use Case Diagram: Illustrates interactions between actors and use cases, including relevant relationships. Available in the report within docs/part1.
     * Use Case Descriptions: Each use case is detailed with associated actors and a high-level description, in line with Appendix E – Simplified use cases.
     * Domain Model: A representation of the application's core entities and their relationships. Accompanied by a descriptive explanation.
@@ -34,36 +35,68 @@ Submission:
     * The report is available in the docs/part1 directory of our GitHub repository.
     * Please refer to the Canvas assignments for the Part1A checklist (Appendix A – Checklist for Part1 Deliverable).
 
-## Part 3
-Task:
-In this part you will design and implement your app as described in Application Domain and as defined
-by the use cases identified in Part 1 (the use cases are specific to each team and project and must be
-approved by the teaching team). At this stage, you will assume that your application is only accessed
-by one user at a time (i.e., there is no need to handle concurrency yet).
-You must include the following patterns in your design and implementation (see Appendix F –
-Expanded use cases and Appendix G – Architecture Document for more details):
-• Domain model
-• Data mapper
-• Unit of work
-• Lazy load
-• Identity field
-• Foreign key mapping
-• Association table mapping
-• Embedded value
-• One of the inheritance patterns
-• Authentication and Authorization (you are free to use any library/framework to implement
-these patterns)
-Deliverables:
-1. The application coded and deployed. The source code of your application and updated
-documents must be committed to your Git repository. The application must be deployed in
-Render.
-2. You must create a tag in your Git repository for this deliverable in the following format:
-SWEN90007_2023_Part2_<team name>. The tag must be created before the submission
-deadline as this will be used to assess your deliverable (no exceptions). After creating the
-release tag, you deploy this tag (not your main repository branch).
-3. A Software Architecture Design (SAD) report with the following items:
-• The class diagram of your application.
+## Part 2 
+Deliverables
+1. Patterns Implemented:
+        Domain model
+        Data mapper
+        Unit of work
+        Lazy load
+        Identity field
+        Foreign key mapping
+        Association table mapping
+        Embedded value
+        A chosen inheritance pattern
+        Authentication and Authorization
 
+2. Git Release Tag: The tag for this deliverable is SWEN90007_2023_Part2_[Your Team Name]. Ensure this tag is created before the submission deadline.
+
+3. Software Architecture Design (SAD) Report:
+        Contains the class diagram of our application.
+        Detailed description of patterns used with contextual examples, supplemented by relevant diagrams.
+        Design rationale for patterns like unit of work and lazy load.
+        The full report is available here.
+
+4. Database & Sample Data: Our deployed app includes a populated database with realistic data samples, essential for testing. Database information and data samples can be found here.
+
+5. Usage Instructions:
+        *Administrator Login:
+            **Username: [Admin Username]
+            **Password: [Admin Password]
+        *Additional instructions on using existing data are provided. Make sure to refer to the provided data samples for a comprehensive understanding.
+
+Submission:
+
+    * The complete application has been deployed on Render and can be accessed here.
+    * The detailed SAD Report and other relevant documents are available in the docs/part2 directory of our GitHub repository.
+    * Please refer to the Canvas assignments for the Part2 Checklist (Appendix B – Checklist for Part2 Deliverable).
+    * Database details and data samples are documented in docs/data-sample.
+
+
+## Part 3
+Deliverables
+1. Concurrency Implementation:
+        *We've addressed multiple concurrency issues specific to our application domain. Details of each identified concurrency problem and its solution can be found in our SAD Report.
+2. Software Architecture Design (SAD) Report:
+        Contains the updated class diagram with highlighted changes.
+        Detailed discussion on identified concurrency issues, our chosen patterns and mechanisms, and the rationale behind our decisions.
+        Details of our testing strategy and the results of the concurrency tests.
+        The full report is available here.
+
+3. Database & Sample Data: Our application includes a populated database with realistic data samples essential for testing. Database details and sample data can be found here.
+
+5. Usage Instructions:
+        Administrator Login:
+            Username: [Admin Username]
+            Password: [Admin Password]
+        Follow the provided data samples to comprehend the application's data flow. Ensure you refer to the data samples for understanding.
+
+Additional Information:
+
+    The complete application has been deployed on Render and can be accessed here.
+    All relevant documents and reports are available in the docs/part3 directory of our GitHub repository.
+    For the Part3 Checklist, please refer to the Canvas assignments.
+    Database and data sample details are documented in docs/data-sample.
 
 ## Part 4
 * We completed high fidelity, 
