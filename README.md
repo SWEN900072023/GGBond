@@ -23,42 +23,49 @@ No payment system is integrated; simply reserving a ticket confirms a booking.
 
 
 # Instructions for Github documentation
-## Sprint 1
+## Part 1
+    * Use Case Diagram: Illustrates interactions between actors and use cases, including relevant relationships. Available in the report within docs/part1.
+    * Use Case Descriptions: Each use case is detailed with associated actors and a high-level description, in line with Appendix E – Simplified use cases.
+    * Domain Model: A representation of the application's core entities and their relationships. Accompanied by a descriptive explanation.
+    * Report: Our detailed report, including the aforementioned elements, can be found here.
+
+Submission:
+
+    * The report is available in the docs/part1 directory of our GitHub repository.
+    * Please refer to the Canvas assignments for the Part1A checklist (Appendix A – Checklist for Part1 Deliverable).
+
+## Part 3
 Task:
-Once you decide on your project description, identify the use cases necessary to meet the
-requirement specification for the application users.
+In this part you will design and implement your app as described in Application Domain and as defined
+by the use cases identified in Part 1 (the use cases are specific to each team and project and must be
+approved by the teaching team). At this stage, you will assume that your application is only accessed
+by one user at a time (i.e., there is no need to handle concurrency yet).
+You must include the following patterns in your design and implementation (see Appendix F –
+Expanded use cases and Appendix G – Architecture Document for more details):
+• Domain model
+• Data mapper
+• Unit of work
+• Lazy load
+• Identity field
+• Foreign key mapping
+• Association table mapping
+• Embedded value
+• One of the inheritance patterns
+• Authentication and Authorization (you are free to use any library/framework to implement
+these patterns)
 Deliverables:
-1. A report, in pdf format, that includes the following:
-* Your team’s name, team members’ names, student ids, unimelb usernames, github
-usernames and emails.
-* A use case diagram that illustrates the interaction between the actors and the use cases,
-as well as any relevant relationship between use cases.
-* A simple description of each use case. Each use case must contain the list of actors
-associated with the use case, a high-level description of the use case (Appendix E –
-Simplified use cases).
-* A domain model with an explanation of it (description for domain model).
-* A Git release tag: you must create a release tag in your Git repository for this deliverable
-in the following format: SWEN90007_2022_Part1_<team name>1. The tag must be
-created before the submission deadline as this will be used to assess your deliverable (no
-exceptions). The created release tag must be added to your report.
-* This report must be available in your GitHub (docs/part1).
-2. Part1A checklist (Appendix A – Checklist for Part1 Deliverable) must be submitted to Canvas
-assignments.
-
-## Sprint 2
-* During sprint 2, we analyzed the users of the site and the types of accounts, we've done the persona.
-* And based on persona, we analyzed the DoBeFeellist for each type of account. 
-* In addition, we also designed a motivation model according to DoBeFeellist. 
-* At the same time, we modified the page structure of confluence and modified some documents according to the feedback from sprint 1.
-
-## Sprint 3
-* We analyzed user needs, by taking apart each function point, we got the user stories. 
-* For each user story, we analyzed its size of estimation, MoSCoW priority and gave our justification. 
-* Through user stories we made User Story Map, show each user story floor by floor. 
-* Through the previous work, we made Low-Fidelity Prototype to show the user operation process intuitively and interactively.
+1. The application coded and deployed. The source code of your application and updated
+documents must be committed to your Git repository. The application must be deployed in
+Render.
+2. You must create a tag in your Git repository for this deliverable in the following format:
+SWEN90007_2023_Part2_<team name>. The tag must be created before the submission
+deadline as this will be used to assess your deliverable (no exceptions). After creating the
+release tag, you deploy this tag (not your main repository branch).
+3. A Software Architecture Design (SAD) report with the following items:
+• The class diagram of your application.
 
 
-## Sprint 4
+## Part 4
 * We completed high fidelity, 
 * Introduced how to use high fidelity to customers, this is our acceptance tests. Then we received feedback from customers, and upgraded high fidelity based on the feedback.
 * Create the mood board. 
