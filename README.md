@@ -24,10 +24,26 @@ No payment system is integrated; simply reserving a ticket confirms a booking.
 
 # Instructions for Github documentation
 ## Sprint 1
-* In sprint1, we looked at the background of the project. The aim of the project is to encourage students to participate more actively in learning activities by comprehensively scoring and reporting student participation points. 
-* We attend client meetings and learn about data sources, key users, and so on. 
-* We got our Elicitation Strategy, how the client expected the score to be calculated, presentation information, and other details about project.
-* The Project Scope of our group is planned, including Extract raw data, Transfer the data, Calculate participation point, Accessible and compatible and Summary and report, and their respective implementation methods.
+Task:
+Once you decide on your project description, identify the use cases necessary to meet the
+requirement specification for the application users.
+Deliverables:
+1. A report, in pdf format, that includes the following:
+• Your team’s name, team members’ names, student ids, unimelb usernames, github
+usernames and emails.
+• A use case diagram that illustrates the interaction between the actors and the use cases,
+as well as any relevant relationship between use cases.
+• A simple description of each use case. Each use case must contain the list of actors
+associated with the use case, a high-level description of the use case (Appendix E –
+Simplified use cases).
+• A domain model with an explanation of it (description for domain model).
+• A Git release tag: you must create a release tag in your Git repository for this deliverable
+in the following format: SWEN90007_2022_Part1_<team name>1. The tag must be
+created before the submission deadline as this will be used to assess your deliverable (no
+exceptions). The created release tag must be added to your report.
+• This report must be available in your GitHub (docs/part1).
+2. Part1A checklist (Appendix A – Checklist for Part1 Deliverable) must be submitted to Canvas
+assignments.
 
 ## Sprint 2
 * During sprint 2, we analyzed the users of the site and the types of accounts, we've done the persona.
