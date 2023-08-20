@@ -2,11 +2,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JSP - Hello World</title>
+  <title>register</title>
 </head>
 <body>
-<h1><%= "Hello World!" %></h1>
+<h1><%= "Welcome to register!" %></h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+<form action="hello-servlet" method="get">
+  <tr>
+    <td>username</td>
+    <td>
+      <input name="username" type="text" id="username">
+      <br>
+    </td>
+  </tr>
+  <tr>
+    <td>password</td>
+    <td>
+      <input name="password" type="password" id="password">
+      <br>
+    </td>
+  </tr>
+  <input value="register" type="submit" id="reg_btn"><br>
+</form>
+
 </body>
 </html>
