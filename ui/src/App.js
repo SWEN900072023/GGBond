@@ -1,36 +1,26 @@
+import React from 'react';
+import './App.css'; 
+
 function App(props) {
   return (
-    <div>
-        <head>
-            <title>register</title>
-        </head>
-        <body>
-            <h1>Welcome to register!</h1>
-            <br/>
-            <form action="/hello-servlet" method="post"> {/* 注意 action 和 method 属性 */}
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>username</td>
-                            <td>
-                                <input name="username" type="text" id="username" />
-                                <br />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>password</td>
-                            <td>
-                                <input name="password" type="password" id="password" />
-                                <br />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <input value="register" type="submit" id="reg_btn" /><br />
-            </form>
-        </body>
+    <div className="app-container">
+      <h1 className="form-title">Welcome to Register !</h1>
+      <form action="/hello-servlet" method="post" className="form-container">
+        <div>
+          <label htmlFor="username">Username</label>
+          <input type="text" id="username" name="username" />
+        </div>
+        <div>
+          <label htmlFor="password">Password</label>
+          <input type="password" id="password" name="password" />
+        </div>
+        <div>
+          <input type="submit" value="Register" id="reg_btn" />
+        </div>
+      </form>
     </div>
   );
 }
 
 export default App;
+
