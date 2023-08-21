@@ -26,20 +26,20 @@ public class HelloServlet extends HttpServlet {
             Connection conn = DriverManager.getConnection(url, user, pw);
 //            Statement stmt = conn.createStatement();
 
-            // 执行查询语句
+            // execute query
             String sql = "INSERT INTO customers VALUES (?,?);";
             PreparedStatement stmt = conn.prepareStatement(sql);
 //            ResultSet rs = stmt.executeQuery(sql, USING u,p);
             stmt.setString(1, u);
             stmt.setString(2, p);
             stmt.executeUpdate();
-            // 处理查询结果
+            // handle result
             PrintWriter out = response.getWriter();
             out.println("<html><body>");
             out.println("<h1>" + message + "</h1>");
             out.println("</body></html>");
 
-            // 关闭 ResultSet、Statement 和 Connection 对象
+            // close the object of ResultSet、Statement and Connection
 //            rs.close();
 //            stmt.close();
             conn.close();
