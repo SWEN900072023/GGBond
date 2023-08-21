@@ -3,9 +3,9 @@ import './App.css';
 
 function App(props) {
   return (
-    <div className="app-container">
-      <h1 className="form-title">Welcome to Register !</h1>
-      <form action="/hello-servlet" method="post" className="form-container">
+    <div>
+      <h1 className="title">Welcome to Register !</h1>
+      <form action="/hello-servlet" method="post" className="form">
         <div>
           <label htmlFor="username">Username</label>
           <input type="text" id="username" name="username" />
