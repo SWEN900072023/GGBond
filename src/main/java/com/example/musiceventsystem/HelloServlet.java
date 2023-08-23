@@ -19,9 +19,9 @@ public class HelloServlet extends HttpServlet {
         String u = request.getParameter("username");
         String p = request.getParameter("password");
         try {
-            String url = "jdbc:postgresql://localhost:5432/postgres";
-            String user = "postgres";
-            String pw = "1331";
+            String url = "jdbc:postgresql://dpg-cji4qqb37aks7388dur0-a.singapore-postgres.render.com:5432/app_x6mu";
+            String user = "swen90007_owner";
+            String pw = "bjxIzoKc2OKSnmZpDwPG9xF4oF0Iebe7";
             Class.forName("org.postgresql.Driver");
             Connection conn = DriverManager.getConnection(url, user, pw);
 //            Statement stmt = conn.createStatement();

@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="music-event-system" uuid="3da5f99f-b4dd-4cd7-9c4f-3d94b6a03c3b">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://dpg-cji4qqb37aks7388dur0-a.singapore-postgres.render.com:5432/app_x6mu</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
