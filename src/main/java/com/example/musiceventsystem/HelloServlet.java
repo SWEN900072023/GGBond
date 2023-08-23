@@ -19,15 +19,15 @@ public class HelloServlet extends HttpServlet {
         String u = request.getParameter("username");
         String p = request.getParameter("password");
         try {
-            String url = "jdbc:postgresql://localhost:5432/postgres";
-            String user = "postgres";
-            String pw = "90007";
+            String url = "jdbc:postgresql://dpg-cjir130cfp5c73a5p6k0-a.singapore-postgres.render.com:5432/musicevents";
+            String user = "dbuser";
+            String pw = "eSR5cyX4zzWGw4hMUBZJKtrOUdWu2lSj";
             Class.forName("org.postgresql.Driver");
             Connection conn = DriverManager.getConnection(url, user, pw);
 //            Statement stmt = conn.createStatement();
 
             // execute query
-            String sql = "INSERT INTO customers VALUES (?,?);";
+            String sql = "INSERT INTO customer VALUES (?,?);";
             PreparedStatement stmt = conn.prepareStatement(sql);
 //            ResultSet rs = stmt.executeQuery(sql, USING u,p);
             stmt.setString(1, u);
