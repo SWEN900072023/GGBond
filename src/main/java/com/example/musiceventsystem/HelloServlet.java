@@ -8,49 +8,54 @@ import java.sql.*;
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
     private String message;
+    private static final String PROPERTY_JDBC_URI = "jdbc.uri";
+    private static final String PROPERTY_JDBC_USERNAME = "jdbc.username";
+    private static final String PROPERTY_JDBC_PASSWORD = "jdbc.password";
 
+    @Override
     public void init() {
+        // Load database driver during initialization
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         message = "Hello World!";
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
+        response.setContentType("text/html; charset=UTF-8");
         request.setCharacterEncoding("utf-8");
-        String u = request.getParameter("username");
-        String p = request.getParameter("password");
-        try {
-            String url = "jdbc:postgresql://dpg-cji4qqb37aks7388dur0-a.singapore-postgres.render.com:5432/app_x6mu";
-            String user = "swen90007_owner";
-            String pw = "bjxIzoKc2OKSnmZpDwPG9xF4oF0Iebe7";
-            Class.forName("org.postgresql.Driver");
-            Connection conn = DriverManager.getConnection(url, user, pw);
-//            Statement stmt = conn.createStatement();
 
-            // execute query
-            String sql = "INSERT INTO customers VALUES (?,?);";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-//            ResultSet rs = stmt.executeQuery(sql, USING u,p);
-            stmt.setString(1, u);
-            stmt.setString(2, p);
-            stmt.executeUpdate();
-            // handle result
-            PrintWriter out = response.getWriter();
-            out.println("<html><body>");
-            out.println("<h1>" + message + "</h1>");
-            out.println("</body></html>");
+        // Get database connection information from system properties
+        String url = System.getProperty(PROPERTY_JDBC_URI);
+        String user = System.getProperty(PROPERTY_JDBC_USERNAME);
+        String pw = System.getProperty(PROPERTY_JDBC_PASSWORD);
 
-            // close the object of ResultSet、Statement and Connection
-//            rs.close();
-//            stmt.close();
-            conn.close();
-        }catch (Exception e){
-            e.printStackTrace();
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+
+        response.addHeader("Access-Control-Allow-Origin", "*");
+        response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        response.addHeader("Access-Control-Max-Age", "3600");
+        response.addHeader("Access-Control-Allow-Headers", "x-requested-with, origin, content-type, accept");
+
+
+        try (Connection conn = DriverManager.getConnection(url, user, pw)) {
+            String sql = "INSERT INTO customers VALUES (?, ?);";
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setString(1, username);
+                stmt.setString(2, password);
+                stmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-        // Hello
-//        PrintWriter out = response.getWriter();
-//        out.println("<html><body>");
-//        out.println("<h1>" + rs + "</h1>");
-//        out.println("</body></html>");
+
+        PrintWriter out = response.getWriter();
+        out.println("<html><body>");
+        out.println("<h1>" + message + "</h1>");
+        out.println("</body></html>");
     }
 
     public void destroy() {
