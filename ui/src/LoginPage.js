@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // 使用 useNavigate 替代 useHistory
-import { login } from './api'; // 你的 API 函数
+import { useNavigate } from 'react-router-dom';
+import { login } from './api'; 
 import './LoginPage.css';
 
 function LoginPage() {
