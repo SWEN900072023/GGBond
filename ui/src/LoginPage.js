@@ -15,10 +15,10 @@ function LoginPage() {
       if (response.ok) {
         navigate('/home');
       } else {
-        console.log('登录失败，请检查用户名和密码');
+        console.log('login fail');
       }
     } catch (error) {
-      console.error('登录出错', error);
+      console.error('wrong login', error);
     }
   };
 
