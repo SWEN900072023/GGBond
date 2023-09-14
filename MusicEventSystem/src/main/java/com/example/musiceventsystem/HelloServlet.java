@@ -29,12 +29,6 @@ public class HelloServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        response.addHeader("Access-Control-Allow-Origin", "*");
-        response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-        response.addHeader("Access-Control-Max-Age", "3600");
-        response.addHeader("Access-Control-Allow-Headers", "x-requested-with, origin, content-type, accept");
-
-
         try (Connection conn = DriverManager.getConnection(url, user, pw)) {
             String sql = "INSERT INTO customers VALUES (?, ?);";
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
