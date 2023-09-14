@@ -33,7 +33,7 @@ Deliverables
 ## Part 2 
 Deliverables
 1. Patterns Implemented:
-* Domain model
+* Domain com.example.musiceventsystem.domain
 * Data mapper
 * Unit of work
 * Lazy load
@@ -60,7 +60,7 @@ Deliverables
 ## Part 3
 Deliverables
 1. Concurrency Implementation:
-*We've addressed multiple concurrency issues specific to our application domain. Details of each identified concurrency problem and its solution can be found in our SAD Report.
+*We've addressed multiple concurrency issues specific to our application com.example.musiceventsystem.domain. Details of each identified concurrency problem and its solution can be found in our SAD Report.
 2. Software Architecture Design (SAD) Report:
 * Contains the updated class diagram with highlighted changes.
 * Detailed discussion on identified concurrency issues, our chosen patterns and mechanisms, and the rationale behind our decisions.
