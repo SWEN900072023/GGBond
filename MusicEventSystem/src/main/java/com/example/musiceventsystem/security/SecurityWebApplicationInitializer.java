@@ -1,4 +1,4 @@
-package security;
+package com.example.musiceventsystem.security;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

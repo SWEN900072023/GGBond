@@ -4,11 +4,9 @@ WORKDIR /app
 
 COPY . .
 
-RUN mvn clean package -DwarName=MusicEventSystem
+RUN mvn clean package -DwarName=MusicEventSystem-1.0-SNAPSHOT
 
 # run stage
 FROM tomcat:10.1.12-jdk21-openjdk
 
 COPY --from=build /app/target/MusicEventSystem-1.0-SNAPSHOT.war $CATALINA_HOME/webapps/
-
-CMD ["catalina.sh", "run"]
