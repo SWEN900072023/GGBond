@@ -1,26 +1,17 @@
 import React from 'react';
-import './App.css'; 
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import HomePage from './HomePage';
+import LoginPage from './LoginPage';
 
-function App(props) {
+function App() {
   return (
-    <div>
-      <h1 className="title">Welcome to Register !</h1>
-      <form action="/hello-servlet" method="post" className="form">
-        <div>
-          <label htmlFor="username">Username</label>
-          <input type="text" id="username" name="username" />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password" />
-        </div>
-        <div>
-          <input type="submit" value="Register" id="reg_btn" />
-        </div>
-      </form>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/home" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
-
