@@ -1,4 +1,4 @@
-package com.example.musiceventsystem;
+package com.example.musiceventsystem.api;
 
 import java.io.*;
 import jakarta.servlet.http.*;
