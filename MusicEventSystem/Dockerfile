@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN mvn clean package -DwarName=MusicEventSystem-1.0-SNAPSHOT
+RUN mvn clean package -DwarName=MusicEventSystem
 
 # run stage
 FROM tomcat:10.1.12-jdk21-openjdk
