@@ -10,14 +10,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.annotation.*;
 import java.sql.*;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
+@WebServlet(name = "helloServlet", urlPatterns = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
     private String message;
     private static final String PROPERTY_JDBC_URI = "jdbc.uri";
     private static final String PROPERTY_JDBC_USERNAME = "jdbc.username";
     private static final String PROPERTY_JDBC_PASSWORD = "jdbc.password";
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html; charset=UTF-8");
         request.setCharacterEncoding("utf-8");
 
