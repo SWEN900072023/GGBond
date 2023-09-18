@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="MusicEventSystem:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c768f040-752e-4d69-ba93-112bf2c1997c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.modules.xml.icloud" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.uiDesigner.xml.icloud" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/out/production/GGBond/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/out/production/GGBond/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/out/production/GGBond/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/out/production/GGBond/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/out/production/GGBond/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/out/production/GGBond/src/main/webapp/.index.jsp.icloud" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/api/HelloServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/controllers/Acontrol.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/CustomerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/CustomerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/DBManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/DBManage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/EventMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/EventMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/OrderMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/PlannerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/PlannerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/TicketsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/TicketsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/VenueMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/VenueMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/domain/Cmodel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/security/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/security/SecurityWebApplicationInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/src/main/java/com/example/musiceventsystem/security/WebSecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MusicEventSystem/src/main/webapp/web/WEB-INF/web.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2VITkF11fnlzfmFhMvGgUXUyAdP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/bilinjing/Desktop/07/GGBond",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "e9c7c4d3f32ced2aa5e9d95b85c28244",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/MusicEventSystem" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.musiceventsystem" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 10.1.12" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.12" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="MusicEventSystem:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/MusicEventSystem_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="f3c202ef-74d5-48d1-b560-038565e56297" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="63259" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="MusicEventSystem:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c768f040-752e-4d69-ba93-112bf2c1997c" name="Changes" comment="" />
+      <created>1694522736266</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694522736266</updated>
+      <workItem from="1694522738322" duration="18000" />
+      <workItem from="1694522802455" duration="434000" />
+      <workItem from="1694523727480" duration="1977000" />
+      <workItem from="1694527136936" duration="263000" />
+      <workItem from="1694568986692" duration="7145000" />
+      <workItem from="1694577641762" duration="3827000" />
+      <workItem from="1694663349048" duration="671000" />
+      <workItem from="1694683204757" duration="3333000" />
+      <workItem from="1694687743947" duration="21675000" />
+      <workItem from="1694943197605" duration="112000" />
+      <workItem from="1694943352010" duration="1000" />
+      <workItem from="1694943452974" duration="14492000" />
+      <workItem from="1694963047858" duration="1021000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
