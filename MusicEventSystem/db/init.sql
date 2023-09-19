@@ -29,16 +29,14 @@ CREATE TABLE Planner (
 
 -- Embedded value pattern for “location” and sections
 -- Table for venue
-CREATE TABLE Venue (
-    Venue_ID       SERIAL PRIMARY KEY,
-    Street         varchar(50),  -- Embedded value
-    City           varchar(50),  -- Embedded value
-    PostalCode     varchar(10),  -- Embedded value
-    Section_Standing int,  -- Embedded value
-    Section_Mosh   int,  -- Embedded value
-    Section_Seated int,  -- Embedded value
-    Section_VIP    int,  -- Embedded value
-    Section_Other  int   -- Embedded value
+CREATE TABLE venue (
+    id SERIAL PRIMARY KEY,
+    name varchar(20) DEFAULT NULL,
+    sectionSta int,  -- Embedded value
+    sectionMos int,  -- Embedded value
+    sectionSea int,  -- Embedded value
+    sectionVip int,  -- Embedded value
+    sectionOth int   -- Embedded value
 );
 
 -- Embedded value pattern for start/end time
