@@ -12,7 +12,22 @@ public class VenueService {
     }
 
     public List<Venue> search(String value) {
-        if (value.isEmpty()) return this.venueMapper.list();
+        if (value.equals("")) return this.venueMapper.list();
         return this.venueMapper.search(value);
+    }
+
+    public void save(Venue venue) {
+        Integer save = this.venueMapper.save(venue);
+        if(save != 1) throw new RuntimeException("Venue creation failure!");
+    }
+
+    public void update(Venue venue) {
+        Integer save = this.venueMapper.update(venue);
+        if(save != 1) throw new RuntimeException("Venue creation failure!");
+    }
+
+    public void delete(Integer id) {
+        Integer delete = this.venueMapper.delete(id);
+        if(delete != 1) throw new RuntimeException("Venue deletion failure!");
     }
 }

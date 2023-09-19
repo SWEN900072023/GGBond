@@ -2,7 +2,10 @@ package com.example.musiceventsystem.datasource;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.example.musiceventsystem.util.JDBCUtil;
 
@@ -31,5 +34,36 @@ public class EventPlannerMapper {
             JDBCUtil.release(connection, statement, null);
         }
         return result;
+    }
+
+    /**
+     * Get event ids by planner id
+     *
+     * @param plannerId the id of the planner
+     * @return the list of the event ids
+     */
+    public List<Integer> getEventIdsByPlannerId(Integer plannerId) {
+        Connection connection = JDBCUtil.getConnection();
+        String sql = "SELECT event_id FROM EVENT_PLANNER_ASSOCIATION WHERE planner_id = ?";
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        List<Integer> eventIds = new ArrayList<>();
+
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, plannerId);
+            resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                int eventId = resultSet.getInt("event_id");
+                eventIds.add(eventId);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtil.release(connection, statement, resultSet);
+        }
+
+        return eventIds;
     }
 }

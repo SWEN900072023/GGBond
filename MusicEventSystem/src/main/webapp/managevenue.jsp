@@ -75,8 +75,8 @@
                                             data-sectionSta="${venue.sectionSta}"
                                             data-sectionMos="${venue.sectionMos}"
                                             data-sectionSea="${venue.sectionSea}"
-                                            data-sectionSea="${venue.sectionVip}"
-                                            data-sectionSea="${venue.sectionOth}"
+                                            data-sectionVip="${venue.sectionVip}"
+                                            data-sectionOth="${venue.sectionOth}"
                                             data-toggle="modal"
                                             data-target="#updateUserModal">
                                         <i class="fa fa-user-o">edit</i>
@@ -108,34 +108,50 @@
                                 <div class="modal-body">
                                     <form class="form-horizontal" role="form">
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">username</label>
+                                            <label for="user_id" class="col-sm-3 control-label">Venue Name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="username"
-                                                       name="username" placeholder="please enter username">
+                                                <input type="text" required class="form-control" id="venuename"
+                                                       name="venuename" placeholder="please enter venuename">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">password</label>
+                                            <label for="user_id" class="col-sm-3 control-label">Standing Amount</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="password"
-                                                       name="password" value="" placeholder="please enter password">
+                                                <input type="number" required class="form-control" id="stan"
+                                                       name="stan" value="">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">name</label>
+                                            <label for="user_id" class="col-sm-3 control-label">Mosh Amount</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="name"
-                                                       name="name" value="" placeholder="please enter name">
+                                                <input type="number" required class="form-control" id="mosn"
+                                                       name="mosn" value="">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">telephone</label>
+                                            <label for="user_id" class="col-sm-3 control-label">Seated Amount</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="telephone"
-                                                       name="telephone" value="" placeholder="please enter telephone">
+                                                <input type="number" required class="form-control" id="sean"
+                                                       name="sean" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="user_id" class="col-sm-3 control-label">VIP Amount</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" required class="form-control" id="vipn"
+                                                       name="vipn" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="user_id" class="col-sm-3 control-label">Others Amount</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" required class="form-control" id="othn"
+                                                       name="othn" value="">
                                             </div>
                                         </div>
                                     </form>
@@ -164,41 +180,58 @@
                                 <div class="modal-body">
                                     <form class="form-horizontal" role="form">
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">ID</label>
+                                            <label for="user_id" class="col-sm-3 control-label">Venue ID</label>
                                             <div class="col-sm-9">
-                                                <input type="text" readonly required class="form-control" id="id"
-                                                       name="id">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">username</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="username"
-                                                       name="username" placeholder="please enter username">
+                                                <input type="text" required readonly class="form-control" id="id"
+                                                       name="id"  value="">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">password</label>
+                                            <label for="user_id" class="col-sm-3 control-label">Venue Name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="password"
-                                                       name="password" value="" placeholder="please enter password">
+                                                <input type="text" required class="form-control" id="venuename"
+                                                       name="venuename"  value="" placeholder="please enter venuename">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">name</label>
+                                            <label for="user_id" class="col-sm-3 control-label">Standing Amount</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="name"
-                                                       name="name" value="" placeholder="please enter name">
+                                                <input type="number" required class="form-control" id="stan"
+                                                       name="stan" value="">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">telephone</label>
+                                            <label for="user_id" class="col-sm-3 control-label">Mosh Amount</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="telephone"
-                                                       name="telephone" value="" placeholder="please enter telephone">
+                                                <input type="number" required class="form-control" id="mosn"
+                                                       name="mosn" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="user_id" class="col-sm-3 control-label">Seated Amount</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" required class="form-control" id="sean"
+                                                       name="sean" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="user_id" class="col-sm-3 control-label">VIP Amount</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" required class="form-control" id="vipn"
+                                                       name="vipn" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="user_id" class="col-sm-3 control-label">Others Amount</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" required class="form-control" id="othn"
+                                                       name="othn" value="">
                                             </div>
                                         </div>
                                     </form>
@@ -223,13 +256,13 @@
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"
                                             aria-hidden="true">×</button>
-                                    <h4 class="modal-title" id="myModalLabel">用户信息</h4>
+                                    <h4 class="modal-title" id="myModalLabel"></h4>
                                 </div>
                                 <div class="modal-body">
                                     <form class="form-horizontal" role="form">
                                         <div class="form-group">
                                             <div class="col-sm-9">
-                                                <h3 class="col-sm-18 control-label" id="deleteLabel">删除信息</h3>
+                                                <h3 class="col-sm-18 control-label" id="deleteLabel"></h3>
                                                 <input type="hidden" class="form-control" id="tab"
                                                        name="tab" placeholder="" value="dor_admin"> <input
                                                     type="hidden" class="form-control" id="id"
@@ -256,18 +289,22 @@
     $('#updateUserModal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget)
         var id = button.data('id')
-        var username = button.data('username')
-        var password = button.data('password')
         var name = button.data('name')
-        var telephone = button.data('telephone')
+        var stan = button.data('sectionsta')
+        var mosn = button.data('sectionmos')
+        var sean = button.data('sectionsea')
+        var vipn = button.data('sectionvip')
+        var othn = button.data('sectionoth')
         var modal = $(this)
 
         modal.find('.modal-title').text('Edit Venue Details')
         modal.find('#id').val(id)
-        modal.find('#username').val(username)
-        modal.find('#password').val(password)
-        modal.find('#name').val(name)
-        modal.find('#telephone').val(telephone)
+        modal.find('#venuename').val(name)
+        modal.find('#stan').val(stan)
+        modal.find('#mosn').val(mosn)
+        modal.find('#sean').val(sean)
+        modal.find('#vipn').val(vipn)
+        modal.find('#othn').val(othn)
     })
 
     $('#delUserModal').on('show.bs.modal', function(event) {

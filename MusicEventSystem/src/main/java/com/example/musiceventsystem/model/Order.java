@@ -1,4 +1,6 @@
-package com.musiceventms.mes.model;
+package com.example.musiceventsystem.model;
+
+import java.sql.Timestamp;
 
 public class Order {
     private Integer id;
@@ -9,7 +11,7 @@ public class Order {
     private String section;
     private Integer price;
     private Integer num;
-    private String time;
+    private Timestamp  time;
 
     public Order(Integer customerId, Integer ticketId, Integer eventId, String eventName, String section, Integer price, Integer num) {
         this.customerId = customerId;
@@ -21,7 +23,7 @@ public class Order {
         this.num = num;
     }
 
-    public Order(Integer id, Integer customerId, Integer ticketId, Integer eventId, String eventName, String section, Integer price, Integer num, String time) {
+    public Order(Integer id, Integer customerId, Integer ticketId, Integer eventId, String eventName, String section, Integer price, Integer num, Timestamp time) {
         this.id = id;
         this.customerId = customerId;
         this.ticketId = ticketId;
@@ -33,11 +35,11 @@ public class Order {
         this.time = time;
     }
 
-    public String getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Timestamp  time) {
         this.time = time;
     }
 

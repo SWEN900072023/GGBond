@@ -138,6 +138,13 @@
                                         </div>
 
                                         <div class="form-group">
+                                            <div class="col-sm-9">
+                                                <input type="text" required class="form-control" id="price"
+                                                       name="price">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
                                             <label for="user_id" class="col-sm-3 control-label">Select Section</label>
                                             <div class="col-sm-9">
                                                 <select class="form-control" name="section">
@@ -197,6 +204,7 @@
         modal.find('#ticketid').val(ticketid)
         modal.find('#eventid').val(eventid)
         modal.find('#eventname').val(eventname)
+        modal.find('#price').val(price)
 
         modal.find('#section').val(stap,mosp,seap)
     })

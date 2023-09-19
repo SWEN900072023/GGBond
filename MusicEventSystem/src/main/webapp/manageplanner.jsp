@@ -260,8 +260,11 @@
 
 <script>
     $('#updateUserModal').on('show.bs.modal', function(event) {
+        // console.log(event)
         var button = $(event.relatedTarget)
+        // console.log(button)
         var id = button.data('id')
+        console.log(id, button.data)
         var username = button.data('username')
         var password = button.data('password')
         var name = button.data('name')

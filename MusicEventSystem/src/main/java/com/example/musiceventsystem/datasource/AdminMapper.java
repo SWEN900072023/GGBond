@@ -32,6 +32,42 @@ public class AdminMapper {
         }
         return null;
     }
+
+    /**
+     * Check the in put is valid or not
+     *
+     * @param username the username of the planner
+     * @param password the password of the planner
+     * @return state code int
+     */
+    public int isLoginValid(String username, String password) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "SELECT * FROM admin WHERE username = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, username);
+            resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                String storedPassword = resultSet.getString("password");
+                if (storedPassword.equals(password)) {
+                    return 1; // login successful
+                } else {
+                    return 0; // wrong password
+                }
+            } else {
+                return -1; // user does not exits
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtil.release(connection, statement, resultSet);
+        }
+    }
 }
 
 

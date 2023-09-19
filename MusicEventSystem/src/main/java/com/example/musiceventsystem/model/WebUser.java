@@ -1,7 +1,5 @@
 package com.example.musiceventsystem.model;
 
-import java.util.UUID;
-
 public class WebUser {
 
     private Integer id;

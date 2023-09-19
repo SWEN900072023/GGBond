@@ -1,7 +1,6 @@
 package com.example.musiceventsystem.controllers;
 
-import com.example.musiceventsystem.dto.AdminDto;
-import com.example.musiceventsystem.service.AdminService;
+import com.example.musiceventsystem.auth.Authentication;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,7 +11,7 @@ import java.io.IOException;
 
 @WebServlet("/account")
 public class AccountServlet extends HttpServlet {
-    private AdminService adminService = new AdminService();
+    private Authentication authentication = new Authentication();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -22,14 +21,18 @@ public class AccountServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String method = req.getParameter("method");
-        String contextPath = req.getContextPath();
         switch (method){
             case "login":
                 String username = req.getParameter("username");
                 String password = req.getParameter("password");
-                AdminDto adminDto = this.adminService.login(username, password);
-                switch (adminDto.getCode()) {
+                String loginType = req.getParameter("loginType");
+
+                authentication.setRoleType(loginType,username, password);
+                int roleType = authentication.getRoleType();
+                String str = username + password + loginType;
+                switch (roleType) {
                     case -1:
+                        //req.setAttribute("ussernameError", str);
                         req.setAttribute("usernameError", "The username does not exist!");
                         req.getRequestDispatcher("login.jsp").forward(req, resp);
                         break;
@@ -37,11 +40,24 @@ public class AccountServlet extends HttpServlet {
                         req.setAttribute("passwordError", "Wrong password!");
                         req.getRequestDispatcher("login.jsp").forward(req, resp);
                         break;
-                    case 0:
-                        HttpSession session = req.getSession();
-                        session.setAttribute("admin", adminDto.getAdmin());
-                        resp.sendRedirect(contextPath + "/admin.jsp");
+                    case 1: // Admin
+                        HttpSession adminSession = req.getSession();
+                        adminSession.setAttribute("roleType", "admin");
+                        resp.sendRedirect("/dashboard.jsp");
                         break;
+                    case 2: // Planner
+                        HttpSession plannerSession = req.getSession();
+                        plannerSession.setAttribute("roleType", "planner");
+                        resp.sendRedirect("/dashboard.jsp");
+                        break;
+                    case 3: // Customer
+                        HttpSession customerSession = req.getSession();
+                        customerSession.setAttribute("roleType", "customer");
+                        resp.sendRedirect("/dashboard.jsp");
+                        break;
+                    default:
+                        req.setAttribute("roleError", "Unknown role!");
+                        req.getRequestDispatcher("login.jsp").forward(req, resp);
                 }
                 break;
             case "logout":

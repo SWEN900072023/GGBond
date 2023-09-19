@@ -6,6 +6,7 @@ import com.example.musiceventsystem.datasource.EventPlannerMapper;
 import com.example.musiceventsystem.datasource.EventMapper;
 import com.example.musiceventsystem.model.Ticket;
 import com.example.musiceventsystem.model.Event;
+import com.example.musiceventsystem.model.Venue;
 
 
 import java.util.List;
@@ -30,8 +31,23 @@ public class EventService {
         if(eventPlannerMapper.save(eventId, plannerId) != 1){
             throw new RuntimeException("Event associate with planner failure!");
         }
-        Ticket ticket = venueMapper.generateTicket(event.getVenue_id());
-        ticket.setId(eventId);
+        Venue venue = venueMapper.selectVenue(event.getVenue_id());
+        Ticket ticket = new Ticket(
+                eventId,
+                event.getName(),
+                venue.getId(),
+                venue.getName(),
+                venue.getSectionSta(),
+                venue.getSectionMos(),
+                venue.getSectionSea(),
+                venue.getSectionVip(),
+                venue.getSectionOth(),
+                event.getStaP(),
+                event.getMosP(),
+                event.getSeaP(),
+                event.getVipP(),
+                event.getOthP()
+        );
         if(ticketsMapper.save(ticket) != 1){
             throw new RuntimeException("Ticket creation failure!");
         }
@@ -41,5 +57,21 @@ public class EventService {
         if (this.eventMapper.delete(id) != 1) {
             throw new RuntimeException("Planner deletion failure!");
         }
+    }
+
+    public List<Event> search(String key, String value)
+    {
+        if (value.equals("")) return this.eventMapper.list();
+        return this.eventMapper.search(key,value);
+    }
+    public void save(Event event)
+    {
+        Integer save = this.eventMapper.save(event);
+        if(save != 1) throw new RuntimeException("Event creation failure!");
+    }
+
+    public void update(Event event) {
+        Integer update = this.eventMapper.update(event);
+        if(update != 1) throw new RuntimeException("Event edit failure!");
     }
 }
