@@ -1,6 +1,8 @@
 package com.example.musiceventsystem.service;
 import com.example.musiceventsystem.model.Customer;
 import com.example.musiceventsystem.datasource.CustomerMapper;
+import com.example.musiceventsystem.datasource.UnitOfWork;
+import com.example.musiceventsystem.model.Event;
 
 import java.util.List;
 
@@ -19,22 +21,36 @@ public class CustomerService {
     }
 
     public void save(Customer customer) {
-        Integer save = this.customerMapper.save(customer);
-        if(save != 1) throw new RuntimeException("Customer creation failure!");
+        UnitOfWork.newCurrent();
+        try {
+            UnitOfWork.getCurrent().registerNew(customer);
+            UnitOfWork.getCurrent().commit();
+        } catch (Exception e) {
+            throw new RuntimeException("Transaction failed", e);
+        } finally {
+            // Reset or remove the UnitOfWork from the current thread
+            UnitOfWork.setCurrent(null);
+        }
     }
 
     public void update(Customer customer) {
-        Integer update = this.customerMapper.update(customer);
-        if(update != 1) throw new RuntimeException("Customer edit failure!");
+        UnitOfWork.newCurrent();
+        try {
+            UnitOfWork.getCurrent().registerDirty(customer);
+            UnitOfWork.getCurrent().commit();
+        } catch (Exception e) {
+            throw new RuntimeException("Transaction failed", e);
+        }
     }
 
     public void delete(Integer id) {
-        Integer delete = this.customerMapper.delete(id);
-        if(delete != 1) throw new RuntimeException("Customer deletion failure!");
+        UnitOfWork.newCurrent();
+        try {
+            Customer customerToDelete = customerMapper.findById(id);
+            UnitOfWork.getCurrent().registerDeleted(customerToDelete);
+            UnitOfWork.getCurrent().commit();
+        } catch (Exception e) {
+            throw new RuntimeException("Transaction failed", e);
+        }
     }
-
-
-
-
-
 }

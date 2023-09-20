@@ -44,6 +44,38 @@ public class EventMapper {
         return list;
     }
 
+    public Event findById(int id) {
+        Connection connection = JDBCUtil.getConnection();
+        String sql = "select e.id, e.name, e.venue_id, v.name, e.date, e.stap, e.mosp, e.seap, e.vipp, e.othp from event e, venue v where e.venue_id = v.id and e.id = ?";
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        Event event = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                int eventId = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                int venue_id = resultSet.getInt(3);
+                String venue_name = resultSet.getString(4);
+                String date = resultSet.getString(5);
+                int sectionSta = resultSet.getInt(6);
+                int sectionMos = resultSet.getInt(7);
+                int sectionSea = resultSet.getInt(8);
+                int sectionVip = resultSet.getInt(9);
+                int sectionOth = resultSet.getInt(10);
+                event = new Event(eventId, name, venue_id, venue_name, date, sectionSta, sectionMos, sectionSea, sectionVip, sectionOth);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtil.release(connection, statement, resultSet);
+        }
+        return event;
+    }
+
+
     /**
      * Insert a new event
      *

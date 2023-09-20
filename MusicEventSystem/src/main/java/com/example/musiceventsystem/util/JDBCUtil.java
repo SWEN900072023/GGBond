@@ -2,6 +2,10 @@ package com.example.musiceventsystem.util;
 
 import java.sql.*;
 import java.util.Properties;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import java.sql.SQLException;
+
 
 public class JDBCUtil {
     static {
@@ -13,6 +17,7 @@ public class JDBCUtil {
     }
 
     public static Connection getConnection(){
+        Logger logger = LogManager.getLogger(JDBCUtil.class);
         Properties properties = new Properties();
         // Load properties from a file or environment, for example:
         // properties.load(new FileInputStream("db.properties"));
@@ -27,7 +32,8 @@ public class JDBCUtil {
         try {
             connection = DriverManager.getConnection(url, user, pw);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            logger.error("Failed to get database connection", e);
+            //throw new RuntimeException(e);
         }
         return connection;
     }

@@ -7,6 +7,8 @@ import com.example.musiceventsystem.datasource.EventMapper;
 import com.example.musiceventsystem.model.Ticket;
 import com.example.musiceventsystem.model.Event;
 import com.example.musiceventsystem.model.Venue;
+import com.example.musiceventsystem.datasource.UnitOfWork;
+
 
 
 import java.util.List;
@@ -22,6 +24,7 @@ public class EventService {
     public List<Event> list() {
         return this.eventMapper.list();
     }
+
 
     public void save(Event event, Integer plannerId) {
         Integer eventId = eventMapper.save(event);
@@ -54,16 +57,23 @@ public class EventService {
     }
 
     public void delete(Integer id) {
-        if (this.eventMapper.delete(id) != 1) {
-            throw new RuntimeException("Planner deletion failure!");
+        UnitOfWork.newCurrent();
+        try {
+            Event eventToDelete = eventMapper.findById(id);
+            UnitOfWork.getCurrent().registerDeleted(eventToDelete);
+            UnitOfWork.getCurrent().commit();
+        } catch (Exception e) {
+            throw new RuntimeException("Transaction failed", e);
         }
     }
+
 
     public List<Event> search(String key, String value)
     {
         if (value.equals("")) return this.eventMapper.list();
         return this.eventMapper.search(key,value);
     }
+
     public void save(Event event)
     {
         Integer save = this.eventMapper.save(event);
@@ -71,7 +81,12 @@ public class EventService {
     }
 
     public void update(Event event) {
-        Integer update = this.eventMapper.update(event);
-        if(update != 1) throw new RuntimeException("Event edit failure!");
+        UnitOfWork.newCurrent();
+        try {
+            UnitOfWork.getCurrent().registerDirty(event);
+            UnitOfWork.getCurrent().commit();
+        } catch (Exception e) {
+            throw new RuntimeException("Transaction failed", e);
+        }
     }
 }

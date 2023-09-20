@@ -12,17 +12,25 @@ import com.example.musiceventsystem.util.JDBCUtil;
 public class TicketsMapper {
     public Integer save(Ticket ticket) {
         Connection connection = JDBCUtil.getConnection();
-        String sql = "insert into ticket(event_id,san,sbn,scn,sdn,sen) values(?,?,?,?,?,?)";
+        String sql = "insert into ticket(event_id,event_name,venue_id,venue_name,san,sbn,scn,sdn,sen,sap,sbp,scp,sdp,sep) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement statement = null;
         Integer result = null;
         try {
             statement = connection.prepareStatement(sql);
-            statement.setInt(1, ticket.getId());
-            statement.setInt(2, ticket.getStaN());
-            statement.setInt(3, ticket.getMosN());
-            statement.setInt(4, ticket.getSeaN());
-            statement.setInt(5, ticket.getVipN());
-            statement.setInt(6, ticket.getOthN());
+            statement.setInt(1, ticket.getEventId());
+            statement.setString(2, ticket.getEventName());
+            statement.setInt(3, ticket.getVenueId());
+            statement.setString(4, ticket.getVenueName());
+            statement.setInt(5, ticket.getStaN());
+            statement.setInt(6, ticket.getMosN());
+            statement.setInt(7, ticket.getSeaN());
+            statement.setInt(8, ticket.getVipN());
+            statement.setInt(9, ticket.getOthN());
+            statement.setInt(10, ticket.getStaP());
+            statement.setInt(11, ticket.getMosP());
+            statement.setInt(12, ticket.getSeaP());
+            statement.setInt(13, ticket.getVipP());
+            statement.setInt(14, ticket.getOthP());
             result = statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

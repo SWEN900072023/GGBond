@@ -199,7 +199,7 @@
         var othp = button.data('othp')
         var modal = $(this)
 
-        modal.find('.modal-title').text('Edit Event Details')
+        modal.find('.modal-title').text('Event Details')
         modal.find('#customerid').val(customerid)
         modal.find('#ticketid').val(ticketid)
         modal.find('#eventid').val(eventid)
