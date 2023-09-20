@@ -193,7 +193,7 @@ public class CustomerMapper {
         Customer customer = null;
         try {
             statement = connection.prepareStatement(sql);
-            statement.setInt(1, id); // 设置查询条件
+            statement.setInt(1, id);
             resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 int customerId = resultSet.getInt("id");
