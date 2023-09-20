@@ -53,8 +53,8 @@ Deliverables
 
 5. Usage Instructions:
 * Administrator Login:
-  *Username: [Admin Username]
-  *Password: [Admin Password]
+  *Username: [Admin1]
+  *Password: [123123]
 *Additional instructions on using existing data are provided. Make sure to refer to the provided data samples for a comprehensive understanding.
 
 ## Part 3
