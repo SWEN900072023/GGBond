@@ -53,15 +53,15 @@ Deliverables
 
 5. Usage Instructions:
 * Administrator Login:
-  *Username: [Admin1]
-  *Password: [123123]
-*Planner Login
-  *Username: [joker]
-  *Password: [123]
-*Customer Login
-  *Username: [superman]
-  *Password: [123]
-*Additional instructions on using existing data are provided. Make sure to refer to the provided data samples for a comprehensive understanding.
+  * Username: [Admin1]
+  * Password: [123123]
+* Planner Login
+  * Username: [joker]
+  * Password: [123]
+* Customer Login
+  * Username: [superman]
+  * Password: [123]
+* Additional instructions on using existing data are provided. Make sure to refer to the provided data samples for a comprehensive understanding.
 
 ## Part 3
 Deliverables
