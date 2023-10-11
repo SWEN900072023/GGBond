@@ -1,12 +1,13 @@
-package datasource;
+package com.example.musiceventsystem.datasource;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
-import com.example.musiceventsystem.domin.EventPlanner; //按照domin model去改下位置
+import com.example.musiceventsystem.domain.EventPlanner;
 
 public class PlannerMapper {
     private Connection connection;
@@ -17,7 +18,7 @@ public class PlannerMapper {
 
     public void insertPlanner(String plannerId, String email, String phone, String username, String password) {
         try {
-            String sql = "INSERT INTO EVENTPLANNER (Planner_ID, Email, Phone, Username, Password) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Planner (Planner_ID, Email, Phone, Username, Password) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, plannerId);
             statement.setString(2, email);
@@ -26,12 +27,13 @@ public class PlannerMapper {
             statement.setString(5, password);
             statement.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
     public void updatePlanner(String plannerId, String email, String phone, String username, String password) {
         try {
-            String sql = "UPDATE EVENTPLANNER SET Email = ?, Phone = ?, Username = ?, Password = ? WHERE Planner_ID = ?";
+            String sql = "UPDATE Planner SET Email = ?, Phone = ?, Username = ?, Password = ? WHERE Planner_ID = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, email);
             statement.setString(2, phone);
@@ -40,22 +42,24 @@ public class PlannerMapper {
             statement.setString(5, plannerId);
             statement.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
     public void deletePlanner(String plannerId) {
         try {
-            String sql = "DELETE FROM EVENTPLANNER WHERE Planner_ID = ?";
+            String sql = "DELETE FROM Planner WHERE Planner_ID = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, plannerId);
             statement.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
     public EventPlanner getPlannerById(String plannerId) {
         try {
-            String sql = "SELECT * FROM EVENTPLANNER WHERE Planner_ID = ?";
+            String sql = "SELECT * FROM Planner WHERE Planner_ID = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, plannerId);
             ResultSet resultSet = statement.executeQuery();
@@ -67,13 +71,14 @@ public class PlannerMapper {
                 return new EventPlanner(plannerId, email, phone, username, password);
             }
         } catch (SQLException e) {
+            e.printStackTrace();
         }
         return null;
     }
 
     public EventPlanner getPlannerByName(String username) {
         try {
-            String sql = "SELECT * FROM EVENTPLANNER WHERE Username = ?";
+            String sql = "SELECT * FROM Planner WHERE Username = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, username);
             ResultSet resultSet = statement.executeQuery();
@@ -85,15 +90,16 @@ public class PlannerMapper {
                 return new EventPlanner(plannerId, email, phone, username, password);
             }
         } catch (SQLException e) {
+            e.printStackTrace();
         }
         return null;
     }
 
-    public ArrayList<EventPlanner> getAllPlanners() {
-        ArrayList<EventPlanner> planners = new ArrayList<>();
+    public List<EventPlanner> getAllPlanners() {
+        List<EventPlanner> planners = new ArrayList<>();
 
         try {
-            String sql = "SELECT * FROM EVENTPLANNER";
+            String sql = "SELECT * FROM Planner";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
 
@@ -108,6 +114,7 @@ public class PlannerMapper {
                 planners.add(planner);
             }
         } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         return planners;

@@ -1,4 +1,4 @@
-package datasource;
+package com.example.musiceventsystem.datasource;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.musiceventsystem.domin.Event; //
+import com.example.musiceventsystem.domain.Event;
 
 public class EventMapper {
     private Connection connection;
@@ -18,7 +18,7 @@ public class EventMapper {
 
     public void insertEvent(String eventId, String plannerId, String venueId, float standingPrice, float moshPrice, float seatedPrice, float vipPrice, float otherPrice) {
         try {
-            String sql = "INSERT INTO EVENT (Event_ID, Planner_ID, Venue_ID, Section_Standing_Price, Section_Mosh_Price, Section_Seated_Price, Section_VIP_Price, Section_Other_Price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Event (Event_ID, Planner_ID, Venue_ID, Section_Standing_Price, Section_Mosh_Price, Section_Seated_Price, Section_VIP_Price, Section_Other_Price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, eventId);
             statement.setString(2, plannerId);
@@ -30,12 +30,13 @@ public class EventMapper {
             statement.setFloat(8, otherPrice);
             statement.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
     public void updateEvent(String eventId, String plannerId, String venueId, float standingPrice, float moshPrice, float seatedPrice, float vipPrice, float otherPrice) {
         try {
-            String sql = "UPDATE EVENT SET Planner_ID = ?, Venue_ID = ?, Section_Standing_Price = ?, Section_Mosh_Price = ?, Section_Seated_Price = ?, Section_VIP_Price = ?, Section_Other_Price = ? WHERE Event_ID = ?";
+            String sql = "UPDATE Event SET Planner_ID = ?, Venue_ID = ?, Section_Standing_Price = ?, Section_Mosh_Price = ?, Section_Seated_Price = ?, Section_VIP_Price = ?, Section_Other_Price = ? WHERE Event_ID = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, plannerId);
             statement.setString(2, venueId);
@@ -47,22 +48,24 @@ public class EventMapper {
             statement.setString(8, eventId);
             statement.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
     public void deleteEvent(String eventId) {
         try {
-            String sql = "DELETE FROM EVENT WHERE Event_ID = ?";
+            String sql = "DELETE FROM Event WHERE Event_ID = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, eventId);
             statement.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
     public Event getEventById(String eventId) {
         try {
-            String sql = "SELECT * FROM EVENT WHERE Event_ID = ?";
+            String sql = "SELECT * FROM Event WHERE Event_ID = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, eventId);
             ResultSet resultSet = statement.executeQuery();
@@ -78,14 +81,15 @@ public class EventMapper {
                 return new Event(eventId, plannerId, venueId, standingPrice, moshPrice, seatedPrice, vipPrice, otherPrice);
             }
         } catch (SQLException e) {
+            e.printStackTrace();
         }
         return null;
     }
 
-    public ArrayList<Event> getAllEvents() {
-        ArrayList<Event> events = new ArrayList<>();
+    public List<Event> getAllEvents() {
+        List<Event> events = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM EVENT";
+            String sql = "SELECT * FROM Event";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -102,6 +106,7 @@ public class EventMapper {
                 events.add(event);
             }
         } catch (SQLException e) {
+            e.printStackTrace();
         }
         return events;
     }

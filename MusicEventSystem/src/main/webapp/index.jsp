@@ -7,7 +7,7 @@
 <body>
 <h1><%= "Welcome to register!" %></h1>
 <br/>
-<form action="hello-servlet" method="post">
+<form action="hello-servlet" method="Get">
   <tr>
     <td>username</td>
     <td>

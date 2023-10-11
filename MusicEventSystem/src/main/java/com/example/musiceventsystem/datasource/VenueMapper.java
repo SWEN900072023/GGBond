@@ -1,4 +1,4 @@
-package datasource;
+package com.example.musiceventsystem.datasource;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.musiceventsystem.domin.Venue; // 不改会报错
+import com.example.musiceventsystem.domain.Venue; // Make sure to import the correct Venue class
 
 public class VenueMapper {
     private Connection connection;
@@ -18,7 +18,7 @@ public class VenueMapper {
 
     public void insertVenue(String venueId, String location, int sectionStanding, int sectionMosh, int sectionSeated, int sectionVIP, int sectionOther) {
         try {
-            String sql = "INSERT INTO VENUE (Venue_ID, Location, Section_Standing, Section_Mosh, Section_Seated, Section_VIP, Section_Other) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO VENUE (Venue_ID, Location, Section_Standing_Capacity, Section_Mosh_Capacity, Section_Seated_Capacity, Section_VIP_Capacity, Section_Other_Capacity) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, venueId);
             statement.setString(2, location);
@@ -29,12 +29,13 @@ public class VenueMapper {
             statement.setInt(7, sectionOther);
             statement.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
     public void updateVenue(String venueId, String location, int sectionStanding, int sectionMosh, int sectionSeated, int sectionVIP, int sectionOther) {
         try {
-            String sql = "UPDATE VENUE SET Location = ?, Section_Standing = ?, Section_Mosh = ?, Section_Seated = ?, Section_VIP = ?, Section_Other = ? WHERE Venue_ID = ?";
+            String sql = "UPDATE VENUE SET Location = ?, Section_Standing_Capacity = ?, Section_Mosh_Capacity = ?, Section_Seated_Capacity = ?, Section_VIP_Capacity = ?, Section_Other_Capacity = ? WHERE Venue_ID = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, location);
             statement.setInt(2, sectionStanding);
@@ -45,6 +46,7 @@ public class VenueMapper {
             statement.setString(7, venueId);
             statement.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -55,6 +57,7 @@ public class VenueMapper {
             statement.setString(1, venueId);
             statement.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -66,21 +69,22 @@ public class VenueMapper {
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 String location = resultSet.getString("Location");
-                int sectionStanding = resultSet.getInt("Section_Standing");
-                int sectionMosh = resultSet.getInt("Section_Mosh");
-                int sectionSeated = resultSet.getInt("Section_Seated");
-                int sectionVIP = resultSet.getInt("Section_VIP");
-                int sectionOther = resultSet.getInt("Section_Other");
+                int sectionStanding = resultSet.getInt("Section_Standing_Capacity");
+                int sectionMosh = resultSet.getInt("Section_Mosh_Capacity");
+                int sectionSeated = resultSet.getInt("Section_Seated_Capacity");
+                int sectionVIP = resultSet.getInt("Section_VIP_Capacity");
+                int sectionOther = resultSet.getInt("Section_Other_Capacity");
 
                 return new Venue(venueId, location, sectionStanding, sectionMosh, sectionSeated, sectionVIP, sectionOther);
             }
         } catch (SQLException e) {
+            e.printStackTrace();
         }
         return null;
     }
 
-    public ArrayList<Venue> getAllVenues() {
-        ArrayList<Venue> venues = new ArrayList<>();
+    public List<Venue> getAllVenues() {
+        List<Venue> venues = new ArrayList<>();
         try {
             String sql = "SELECT * FROM VENUE";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -88,16 +92,17 @@ public class VenueMapper {
             while (resultSet.next()) {
                 String venueId = resultSet.getString("Venue_ID");
                 String location = resultSet.getString("Location");
-                int sectionStanding = resultSet.getInt("Section_Standing");
-                int sectionMosh = resultSet.getInt("Section_Mosh");
-                int sectionSeated = resultSet.getInt("Section_Seated");
-                int sectionVIP = resultSet.getInt("Section_VIP");
-                int sectionOther = resultSet.getInt("Section_Other");
+                int sectionStanding = resultSet.getInt("Section_Standing_Capacity");
+                int sectionMosh = resultSet.getInt("Section_Mosh_Capacity");
+                int sectionSeated = resultSet.getInt("Section_Seated_Capacity");
+                int sectionVIP = resultSet.getInt("Section_VIP_Capacity");
+                int sectionOther = resultSet.getInt("Section_Other_Capacity");
 
                 Venue venue = new Venue(venueId, location, sectionStanding, sectionMosh, sectionSeated, sectionVIP, sectionOther);
                 venues.add(venue);
             }
         } catch (SQLException e) {
+            e.printStackTrace();
         }
         return venues;
     }

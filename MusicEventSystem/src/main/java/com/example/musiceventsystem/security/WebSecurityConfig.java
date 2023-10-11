@@ -26,8 +26,14 @@ public class WebSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
+        //configuration.setAllowedOrigins(Arrays.asList("*"));
+        //String allowedOrigins = System.getProperty("cors.origins.ui", "/webapp/index.js");
+        //String allowedOrigins = System.getProperty("cors.origins.ui", "http://localhost:3000");
+        //configuration.setAllowedOrigins(Arrays.asList(allowedOrigins.split(",")));
+
+
         configuration.setAllowedOrigins(Arrays.asList(System.getProperty(PROPERTY_CORS_ORIGINS_UI)));
-        configuration.setAllowedMethods(Arrays.asList("doPost"));
+        configuration.setAllowedMethods(Arrays.asList("Get"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;

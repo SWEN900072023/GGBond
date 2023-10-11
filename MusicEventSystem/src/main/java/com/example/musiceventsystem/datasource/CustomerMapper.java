@@ -1,4 +1,4 @@
-package datasource;
+package com.example.musiceventsystem.datasource;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.example.musiceventsystem.security.Customer; //这里改成customer类的位置
+import com.example.musiceventsystem.domain.Customer;
 
 public class CustomerMapper {
     private Connection connection;
@@ -17,7 +17,7 @@ public class CustomerMapper {
 
     public void insertCustomer(String customerId, String email, String phone, String username, String password) {
         try {
-            String sql = "INSERT INTO CUSTOMER (Customer_ID, Email, Phone, Username, Password) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Customer (Customer_ID, Email, Phone, Username, Password) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, customerId);
             statement.setString(2, email);
@@ -26,12 +26,13 @@ public class CustomerMapper {
             statement.setString(5, password);
             statement.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
     public void updateCustomer(String customerId, String email, String phone, String username, String password) {
         try {
-            String sql = "UPDATE CUSTOMER SET Email = ?, Phone = ?, Username = ?, Password = ? WHERE Customer_ID = ?";
+            String sql = "UPDATE Customer SET Email = ?, Phone = ?, Username = ?, Password = ? WHERE Customer_ID = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, email);
             statement.setString(2, phone);
@@ -40,22 +41,24 @@ public class CustomerMapper {
             statement.setString(5, customerId);
             statement.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
     public void deleteCustomer(String customerId) {
         try {
-            String sql = "DELETE FROM CUSTOMER WHERE Customer_ID = ?";
+            String sql = "DELETE FROM Customer WHERE Customer_ID = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, customerId);
             statement.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
     public Customer getCustomerById(String customerId) {
         try {
-            String sql = "SELECT * FROM CUSTOMER WHERE Customer_ID = ?";
+            String sql = "SELECT * FROM Customer WHERE Customer_ID = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, customerId);
             ResultSet resultSet = statement.executeQuery();
@@ -67,12 +70,14 @@ public class CustomerMapper {
                 return new Customer(customerId, email, phone, username, password);
             }
         } catch (SQLException e) {
+            e.printStackTrace();
         }
         return null;
     }
+
     public Customer getCustomerByName(String username) {
         try {
-            String sql = "SELECT * FROM CUSTOMER WHERE Username = ?";
+            String sql = "SELECT * FROM Customer WHERE Username = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, username);
             ResultSet resultSet = statement.executeQuery();
@@ -84,14 +89,16 @@ public class CustomerMapper {
                 return new Customer(customerId, email, phone, username, password);
             }
         } catch (SQLException e) {
+            e.printStackTrace();
         }
         return null;
     }
+
     public ArrayList<Customer> getAllCustomers() {
         ArrayList<Customer> customers = new ArrayList<>();
 
         try {
-            String sql = "SELECT * FROM CUSTOMER";
+            String sql = "SELECT * FROM Customer";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
 
@@ -106,9 +113,8 @@ public class CustomerMapper {
                 customers.add(customer);
             }
         } catch (SQLException e) {
+            e.printStackTrace();
         }
-
         return customers;
     }
-
 }
