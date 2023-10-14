@@ -4,12 +4,13 @@ import com.example.musiceventsystem.datasource.OrderMapper;
 import com.example.musiceventsystem.datasource.TicketsMapper;
 import com.example.musiceventsystem.model.Order;
 import com.example.musiceventsystem.model.Ticket;
+import com.example.musiceventsystem.util.JedisPoolUtil;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 
 public class OrderService {
     private OrderMapper orderMapper = new OrderMapper();
@@ -26,9 +27,11 @@ public class OrderService {
         return orderMapper.search(key, value);
     }
 
-    public void save(Order order) {
+    public Integer save(Order order) {
+        int res = -1;
         String value = UUID.randomUUID().toString();
-        Jedis jedis = new Jedis("13.236.134.190",6379);
+        JedisPool jedisPool = JedisPoolUtil.getInstance();
+        Jedis jedis = jedisPool.getResource();
         String lua = "if redis.call(\"get\",KEYS[1])==ARGV[1] then\n" +
                 "return redis.call(\"del\",KEYS[1])\n" +
                 "else\n" +
@@ -36,23 +39,29 @@ public class OrderService {
                 "end";
         String scriptLoad = jedis.scriptLoad(lua);
         int l = ((int) jedis.setnx("ticketlock", value));
+        jedis.expire("ticketlock", 30);
         if (l == 1) {
-            Integer result = orderMapper.save(order);
-            if (result != 1) {
-                throw new RuntimeException("Order creation failure!");
-            }
             System.out.println(order.getTicketId());
             Ticket ticket = ticketsMapper.search(order.getTicketId());
-            ticket.setStaN(ticket.getStaN() - order.getNum());
+            res = ticket.getStaN() - order.getNum();
+            if (res < 0) {
+                jedis.evalsha(scriptLoad, Collections.singletonList("ticketlock"), Collections.singletonList(value));
+                return -1;
+            }
+            ticket.setStaN(res);
             Integer ticketResult = ticketsMapper.update(ticket);
             if (ticketResult != 1) {
                 throw new RuntimeException("Order creation failure!");
             }
-            Object evalsha = jedis.evalsha(scriptLoad, Collections.singletonList("ticketlock"), Collections.singletonList(value));
-            System.out.println(evalsha);
+            Integer result = orderMapper.save(order);
+            if (result != 1) {
+                throw new RuntimeException("Order creation failure!");
+            }
+            jedis.evalsha(scriptLoad, Collections.singletonList("ticketlock"), Collections.singletonList(value));
         } else {
-            System.out.println("Occupied by another thread, please try again later!");
+            return 0;
         }
+        return 1;
     }
 
     public void update(Order order) {

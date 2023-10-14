@@ -51,8 +51,18 @@ public class PurchaseServlet extends HttpServlet {
 //                Integer price = 1;
                 String numStr = req.getParameter("number");
                 Integer num = Integer.parseInt(numStr);
-                this.orderService.save(new Order(customerId, ticketId, eventId, eventName,section,price,num));
-                resp.sendRedirect("/purchase?method=list");
+                Integer res = this.orderService.save(new Order(customerId, ticketId, eventId, eventName,section,price,num));
+                switch (res){
+                    case 1:
+                        resp.sendRedirect("/purchase?method=list");
+                        break;
+                    case 0:
+                        resp.sendRedirect("/serverbusy.jsp");
+                        break;
+                    case -1:
+                        resp.sendRedirect("/insufficientstock.jsp");
+                        break;
+                }
                 break;
         }
     }
