@@ -24,9 +24,12 @@ public class JDBCUtil {
         // String url = properties.getProperty("jdbc.url");
         // String user = properties.getProperty("jdbc.user");
         // String pw = properties.getProperty("jdbc.password");
-        String url = "jdbc:postgresql://dpg-cjir130cfp5c73a5p6k0-a.singapore-postgres.render.com:5432/musicevents";
+//        String url = "jdbc:postgresql://dpg-cjir130cfp5c73a5p6k0-a.singapore-postgres.render.com:5432/musicevents";
+//        String user = "dbuser";
+//        String pw = "eSR5cyX4zzWGw4hMUBZJKtrOUdWu2lSj";
+        String url = "jdbc:postgresql://52.65.13.88:5432/musicevents";
         String user = "dbuser";
-        String pw = "eSR5cyX4zzWGw4hMUBZJKtrOUdWu2lSj";
+        String pw = "123456";
 
         Connection connection = null;
         try {

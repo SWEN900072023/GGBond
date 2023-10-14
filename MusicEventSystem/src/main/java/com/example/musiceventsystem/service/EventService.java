@@ -56,6 +56,39 @@ public class EventService {
         }
     }
 
+    public void update(Event event, Integer plannerId) {
+        Integer r = eventMapper.update(event);
+        if(r < 0){
+            throw new RuntimeException("Event creation failure!");
+        };
+        Integer eventId = event.getId();
+        if(eventPlannerMapper.update(eventId, plannerId) != 1){
+            throw new RuntimeException("Event associate with planner failure!");
+        }
+        Venue venue = venueMapper.selectVenue(event.getVenue_id());
+        Integer ticketId = ticketsMapper.searchIdbyEventId(eventId);
+        Ticket ticket = new Ticket(
+                ticketId,
+                eventId,
+                event.getName(),
+                venue.getId(),
+                venue.getName(),
+                venue.getSectionSta(),
+                venue.getSectionMos(),
+                venue.getSectionSea(),
+                venue.getSectionVip(),
+                venue.getSectionOth(),
+                event.getStaP(),
+                event.getMosP(),
+                event.getSeaP(),
+                event.getVipP(),
+                event.getOthP()
+        );
+        if(ticketsMapper.update(ticket) != 1){
+            throw new RuntimeException("Ticket creation failure!");
+        }
+    }
+
     public void delete(Integer id) {
         UnitOfWork.newCurrent();
         try {

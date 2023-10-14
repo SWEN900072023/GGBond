@@ -107,6 +107,26 @@ public class TicketsMapper {
         return list;
     }
 
+    public Integer searchIdbyEventId(Integer eventId) {
+        Integer id = 0;
+        Connection connection = JDBCUtil.getConnection();
+        String sql = "select * from ticket where event_id="+eventId;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                id = resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtil.release(connection, statement, resultSet);
+        }
+        return id;
+    }
+
     public Ticket search(Integer id) {
         Connection connection = JDBCUtil.getConnection();
         String sql = "select * from ticket where id="+id;

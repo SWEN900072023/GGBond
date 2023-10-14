@@ -111,35 +111,35 @@
 
                                         <div class="form-group">
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="customerid"
+                                                <input type="hidden" required class="form-control" id="customerid"
                                                        name="customerid" value="">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="ticketid"
+                                                <input type="hidden" required class="form-control" id="ticketid"
                                                        name="ticketid" value="">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="eventid"
+                                                <input type="hidden" required class="form-control" id="eventid"
                                                        name="eventid" value="">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="eventname"
+                                                <input type="hidden" required class="form-control" id="eventname"
                                                        name="eventname">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="price"
+                                                <input type="hidden" required class="form-control" id="price"
                                                        name="price">
                                             </div>
                                         </div>
@@ -206,7 +206,7 @@
         modal.find('#eventname').val(eventname)
         modal.find('#price').val(price)
 
-        modal.find('#section').val(stap,mosp,seap)
+        modal.find('#stap').val(stap)
     })
 </script>
 
