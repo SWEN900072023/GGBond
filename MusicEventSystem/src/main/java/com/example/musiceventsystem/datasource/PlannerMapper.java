@@ -171,7 +171,7 @@ public class PlannerMapper {
             if (resultSet.next()) {
                 String storedPassword = resultSet.getString("password");
                 if (storedPassword.equals(password)) {
-                    return 1; // longin success
+                    return resultSet.getInt("id"); // longin success
                 } else {
                     return 0; // wrong password
                 }

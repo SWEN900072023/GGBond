@@ -35,7 +35,7 @@
         <span style="color: #CCCCCC;font-size: 26px;position: relative;top: 5px;"></span>
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a>Welcome, ${admin.name}</a>
+                <a>Welcome! ${id}</a>
             </li>
             <li>
                 <a href="/account?method=logout">Logout</a>

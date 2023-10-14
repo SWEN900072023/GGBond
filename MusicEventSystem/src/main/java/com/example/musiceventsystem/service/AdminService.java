@@ -3,6 +3,7 @@ package com.example.musiceventsystem.service;
 import com.example.musiceventsystem.datasource.AdminMapper;
 import com.example.musiceventsystem.model.Admin;
 import com.example.musiceventsystem.dto.AdminDto;
+import redis.clients.jedis.Jedis;
 
 public class AdminService {
     private AdminMapper adminMapper = new AdminMapper();

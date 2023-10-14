@@ -55,7 +55,7 @@ public class AdminMapper {
             if (resultSet.next()) {
                 String storedPassword = resultSet.getString("password");
                 if (storedPassword.equals(password)) {
-                    return 1; // login successful
+                    return resultSet.getInt("id"); // login successful
                 } else {
                     return 0; // wrong password
                 }

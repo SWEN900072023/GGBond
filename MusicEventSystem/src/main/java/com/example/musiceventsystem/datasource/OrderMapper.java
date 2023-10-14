@@ -75,13 +75,12 @@ public class OrderMapper {
 
     public List<Order> search(String key, String value) {
         Connection connection = JDBCUtil.getConnection();
-        String sql = "SELECT * FROM customerorder WHERE " + key + " LIKE ?";
+        String sql = "SELECT * FROM customerorder WHERE "+key+"="+value;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         List<Order> orders = new ArrayList<>();
         try {
             statement = connection.prepareStatement(sql);
-            statement.setString(1, "%" + value + "%");
             resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");

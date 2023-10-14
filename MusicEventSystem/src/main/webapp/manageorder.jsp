@@ -48,6 +48,7 @@
                     <c:forEach items="${list}" var="order">
                         <tr>
                             <td>${order.id}</td>
+<%--                            <td>${order.customerId}</td>--%>
                             <td>${order.eventName}</td>
                             <td>${order.num}</td>
                             <td>${order.time}</td>

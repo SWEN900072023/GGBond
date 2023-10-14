@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.ui.Model;
 
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -40,7 +41,10 @@ public class OrderServlet extends HttpServlet {
                     resp.sendRedirect("/accessdenied.jsp");
                     return;
                 }
-                req.setAttribute("list", this.orderService.list());
+                HttpSession customerSession = req.getSession();
+                Integer uid = (Integer) customerSession.getAttribute("id");
+                String suid = uid.toString();
+                req.setAttribute("list", this.orderService.search("customer_id", suid));
                 req.getRequestDispatcher("manageorder.jsp").forward(req, resp);
                 break;
             case "search":

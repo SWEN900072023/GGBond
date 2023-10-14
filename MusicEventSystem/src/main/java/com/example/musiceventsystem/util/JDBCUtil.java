@@ -38,7 +38,6 @@ public class JDBCUtil {
         return connection;
     }
 
-
     public static void release(Connection connection, Statement statement, ResultSet resultSet) {
         try {
             if(connection != null){

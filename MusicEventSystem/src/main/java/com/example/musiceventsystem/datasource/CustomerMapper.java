@@ -167,11 +167,12 @@ public class CustomerMapper {
             statement = connection.prepareStatement(sql);
             statement.setString(1, username);
             resultSet = statement.executeQuery();
+            System.out.println(resultSet);
 
             if (resultSet.next()) {
                 String storedPassword = resultSet.getString("password");
                 if (storedPassword.equals(password)) {
-                    return 1; // login success
+                    return resultSet.getInt("id"); // login success
                 } else {
                     return 0; // incorrect password
                 }
