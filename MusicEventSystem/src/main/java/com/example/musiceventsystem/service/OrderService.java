@@ -4,8 +4,13 @@ import com.example.musiceventsystem.datasource.OrderMapper;
 import com.example.musiceventsystem.datasource.TicketsMapper;
 import com.example.musiceventsystem.model.Order;
 import com.example.musiceventsystem.model.Ticket;
+import com.example.musiceventsystem.util.JedisPoolUtil;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 public class OrderService {
     private OrderMapper orderMapper = new OrderMapper();
