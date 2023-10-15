@@ -79,6 +79,7 @@
                                             data-seap="${event.vipP}"
                                             data-vipp="${event.vipP}"
                                             data-othp="${event.othP}"
+                                            data-version="${event.version}"
                                             data-toggle="modal"
                                             data-target="#updateUserModal">
                                         <i class="fa fa-user-o">edit</i>
@@ -297,6 +298,14 @@
                                             </div>
                                         </div>
 
+                                        <div class="form-group">
+                                            <label for="user_id" class="col-sm-3 control-label"></label>
+                                            <div class="col-sm-9">
+                                                <input type="hidden" required class="form-control" id="version"
+                                                       name="version" value="">
+                                            </div>
+                                        </div>
+
                                     </form>
                                 </div>
                                 <div class="modal-footer">
@@ -360,6 +369,7 @@
         var seap = button.data('seap')
         var vipp = button.data('vipp')
         var othp = button.data('othp')
+        var version = button.data('version')
         var modal = $(this)
 
         modal.find('.modal-title').text('Edit Event Details')
@@ -372,6 +382,7 @@
         modal.find('#seap').val(seap)
         modal.find('#vipp').val(vipp)
         modal.find('#othp').val(othp)
+        modal.find('#version').val(version)
     })
 
     $('#delUserModal').on('show.bs.modal', function(event) {

@@ -39,26 +39,29 @@ CREATE TABLE venue (
     sectionOth int   -- Embedded value
 );
 
--- Embedded value pattern for start/end time
 -- Table for event
-CREATE TABLE Event (
-    Event_ID        SERIAL PRIMARY KEY,
-    Planner_ID      int,
-    Venue_ID        int,
-    Start_Time timestamp DEFAULT current_timestamp, -- Embedded value
-    End_Time timestamp DEFAULT current_timestamp, -- Embedded value
-    FOREIGN KEY (Planner_ID) REFERENCES Planner(id),
-    FOREIGN KEY (Venue_ID) REFERENCES Venue(Venue_ID)
+CREATE TABLE event (
+    id        SERIAL PRIMARY KEY,
+    name varchar(20) DEFAULT NULL,
+    venue_id        int,
+    date varchar(20) DEFAULT NULL,
+    staP int,
+    mosP int,
+    seaP int,
+    vipP int,
+    othP int,
+    version int DEFAULT 0,
+    FOREIGN KEY (venue_id) REFERENCES venue(id)
 );
 
 -- Association table mapping pattern
 -- An event can be managed by multiple Event Planners
 CREATE TABLE EVENT_PLANNER_ASSOCIATION (
-    Event_ID      int,
-    Planner_ID    int,
-    PRIMARY KEY (Event_ID, Planner_ID),
-    FOREIGN KEY (Event_ID) REFERENCES Event(Event_ID),
-    FOREIGN KEY (Planner_ID) REFERENCES Planner(id)
+    event_id      int,
+    planner_id    int,
+    PRIMARY KEY (event_id, planner_id),
+    FOREIGN KEY (event_id) REFERENCES event(id) on update cascade  on delete  cascade,
+    FOREIGN KEY (planner_id) REFERENCES planner(id) on update cascade  on delete  cascade
 );
 
 -- Association table mapping pattern
@@ -71,23 +74,41 @@ CREATE TABLE EVENT_PRICING (
 );
 
 -- Table for order
-CREATE TABLE Customer_Order (
-    Order_ID        SERIAL PRIMARY KEY,
-    Customer_ID     int,
-    Date            timestamp,
-    Timestamp       timestamp DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (Customer_ID) REFERENCES customer(id)
+CREATE TABLE customerorder (
+    id        SERIAL PRIMARY KEY,
+    customer_id int,
+    ticket_id int,
+    event_id int,
+    event_name varchar(20) DEFAULT NULL,
+    section varchar(20) DEFAULT NULL,
+    unitprice int,
+    num int,
+    Timestamp timestamp DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (event_id) REFERENCES event(id) on update cascade  on delete  cascade,
+    FOREIGN KEY (customer_id) REFERENCES customer(id) on update cascade  on delete  cascade
 );
 
 -- Table for tickets
-CREATE TABLE TICKET (
-    Ticket_ID       SERIAL PRIMARY KEY,
-    Event_ID        int,
-    Section_Type    varchar(50),
-    Seat_ID         varchar(50),
-    FOREIGN KEY (Event_ID) REFERENCES Event(Event_ID)
+CREATE TABLE ticket (
+    id SERIAL PRIMARY KEY,
+    event_id int,
+    event_name varchar(20) DEFAULT NULL,
+    venue_id int,
+    venue_name varchar(20) DEFAULT NULL,
+    san int,
+    sbn int,
+    scn int,
+    sdn int,
+    sen int,
+    sap int,
+    sbp int,
+    scp int,
+    sdp int,
+    sep int,
+    FOREIGN KEY (event_id) REFERENCES event(id)  on update cascade  on delete  cascade
 );
 
+-- Not use yet
 -- Association table mapping pattern
 -- An oder can have many tickets
 CREATE TABLE ORDER_DETAILS (

@@ -38,19 +38,21 @@ public class EventPlannerMapper {
 
     public Integer update(Integer eventId, Integer plannerId) {
         Connection connection = JDBCUtil.getConnection();
-        String sql = "update EVENT_PLANNER_ASSOCIATION set planner_id=? where event_id=?";
+//        String sql = "update EVENT_PLANNER_ASSOCIATION set planner_id=? where event_id=?";
+        String sql = "INSERT INTO EVENT_PLANNER_ASSOCIATION (event_id, planner_id) VALUES (?, ?)";
         PreparedStatement statement = null;
         Integer result = null;
         try {
             statement = connection.prepareStatement(sql);
-            statement.setInt(1, plannerId);
-            statement.setInt(2, eventId);
+            statement.setInt(1, eventId);
+            statement.setInt(2, plannerId);
             result = statement.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            return 1;
         } finally {
             JDBCUtil.release(connection, statement, null);
         }
+        System.out.println(result);
         return result;
     }
 
