@@ -87,13 +87,42 @@ public class EventServlet extends HttpServlet {
                 resp.sendRedirect("/event?method=list");
                 break;
 
-            case "delete":
-                if (!authorization.checkPermission(userRole, "event delete")) {
+            case "update":
+                if (!authorization.checkPermission(userRole, "event save")) {
                     resp.sendRedirect("/accessdenied.jsp");
                     return;
                 }
                 String idStr = req.getParameter("id");
                 Integer id = Integer.parseInt(idStr);
+                plannerIdStr = req.getParameter("planner");
+                plannerId = Integer.parseInt(plannerIdStr);
+
+                name = req.getParameter("name");
+                venueIdStr = req.getParameter("venue");
+                venueId = Integer.parseInt(venueIdStr);
+                date = req.getParameter("date");
+                stapStr = req.getParameter("stap");
+                stap = Integer.parseInt(stapStr);
+                mospStr = req.getParameter("mosp");
+                mosp = Integer.parseInt(mospStr);
+                seapStr = req.getParameter("seap");
+                seap = Integer.parseInt(seapStr);
+                vippStr = req.getParameter("vipp");
+                vipp = Integer.parseInt(vippStr);
+                othpStr = req.getParameter("othp");
+                othp = Integer.parseInt(othpStr);
+
+                eventService.update(new Event(id, name, venueId, date, stap, mosp, seap, vipp, othp), plannerId);
+                resp.sendRedirect("/event?method=list");
+                break;
+
+            case "delete":
+                if (!authorization.checkPermission(userRole, "event delete")) {
+                    resp.sendRedirect("/accessdenied.jsp");
+                    return;
+                }
+                idStr = req.getParameter("id");
+                id = Integer.parseInt(idStr);
                 eventService.delete(id);
                 resp.sendRedirect("/event?method=list");
                 break;

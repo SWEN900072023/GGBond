@@ -10,4 +10,6 @@ public class TicketService {
     public List<Ticket> list() {
         return this.ticketsMapper.list();
     }
+
+
 }

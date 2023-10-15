@@ -22,7 +22,7 @@ public class Authentication {
         this.plannerMapper = new PlannerMapper();
     }
 
-    public void setRoleType(String userType, String Username, String Password) {
+    public int setRoleType(String userType, String Username, String Password) {
         int result = -1; // default setting -1（unknown）
 
         if (userType.equals(ROLE_ADMIN)) {
@@ -33,12 +33,15 @@ public class Authentication {
             result = customerMapper.isLoginValid(Username, Password);
         }
 
-        if (result == 1) {
+        if (result > 0) {
             roleId = getUserRoleId(userType); // get user type
+            return result;
         } else if (result == 0) {
             roleId = -2; // wrong password
+            return 0;
         } else {
             roleId = -1; // unknown user
+            return 0;
         }
     }
 

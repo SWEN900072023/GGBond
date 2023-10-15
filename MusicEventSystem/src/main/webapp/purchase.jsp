@@ -48,11 +48,11 @@
                         <th>ID</th>
                         <th>Event</th>
                         <th>Venue</th>
-                        <th>Standing</th>
-                        <th>Mosh</th>
-                        <th>Seated</th>
-                        <th>VIP</th>
-                        <th>Other</th>
+                        <th>Standing Left</th>
+                        <th>Mosh Left</th>
+                        <th>Seated Left</th>
+                        <th>VIP Left</th>
+                        <th>Other Left</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -61,15 +61,15 @@
                             <td>${ticket.id}</td>
                             <td>${ticket.eventName}</td>
                             <td>${ticket.venueName}</td>
-                            <td>${ticket.staP}</td>
-                            <td>${ticket.mosP}</td>
-                            <td>${ticket.seaP}</td>
-                            <td>${ticket.vipP}</td>
-                            <td>${ticket.othP}</td>
+                            <td>${ticket.staN}</td>
+                            <td>${ticket.mosN}</td>
+                            <td>${ticket.seaN}</td>
+                            <td>${ticket.vipN}</td>
+                            <td>${ticket.othN}</td>
                             <td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default "
-                                            data-customerid="${admin.id}"
+                                            data-customerid="${id}"
                                             data-ticketid="${ticket.id}"
                                             data-eventid="${ticket.eventId}"
                                             data-eventname="${ticket.eventName}"
@@ -111,35 +111,35 @@
 
                                         <div class="form-group">
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="customerid"
+                                                <input type="hidden" required class="form-control" id="customerid"
                                                        name="customerid" value="">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="ticketid"
+                                                <input type="hidden" required class="form-control" id="ticketid"
                                                        name="ticketid" value="">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="eventid"
+                                                <input type="hidden" required class="form-control" id="eventid"
                                                        name="eventid" value="">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="eventname"
+                                                <input type="hidden" required class="form-control" id="eventname"
                                                        name="eventname">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="price"
+                                                <input type="hidden" required class="form-control" id="price"
                                                        name="price">
                                             </div>
                                         </div>
@@ -148,7 +148,7 @@
                                             <label for="user_id" class="col-sm-3 control-label">Select Section</label>
                                             <div class="col-sm-9">
                                                 <select class="form-control" name="section">
-                                                    <option id="sta" value='['a','b']'>Standing</option>
+                                                    <option id="sta" value="sta">Standing</option>
                                                     <option id="mos" value="mos">Mosh</option>
                                                     <option id="sea" value="sea">Seated</option>
                                                     <option id="vip" value="vip">VIP</option>
@@ -187,7 +187,7 @@
 <script>
     $('#ticketDetailModal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget)
-        var customerid = '1'
+        var customerid = button.data('customerid')
         var ticketid = button.data('ticketid')
         var eventid = button.data('eventid')
         var eventname = button.data('eventname')
@@ -206,7 +206,7 @@
         modal.find('#eventname').val(eventname)
         modal.find('#price').val(price)
 
-        modal.find('#section').val(stap,mosp,seap)
+        modal.find('#stap').val(stap)
     })
 </script>
 

@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 
 @WebServlet("/account")
@@ -27,7 +28,7 @@ public class AccountServlet extends HttpServlet {
                 String password = req.getParameter("password");
                 String loginType = req.getParameter("loginType");
 
-                authentication.setRoleType(loginType,username, password);
+                int id = authentication.setRoleType(loginType,username, password);
                 int roleType = authentication.getRoleType();
                 String str = username + password + loginType;
                 switch (roleType) {
@@ -43,16 +44,19 @@ public class AccountServlet extends HttpServlet {
                     case 1: // Admin
                         HttpSession adminSession = req.getSession();
                         adminSession.setAttribute("roleType", "admin");
+                        adminSession.setAttribute("id", id);
                         resp.sendRedirect("/dashboard.jsp");
                         break;
                     case 2: // Planner
                         HttpSession plannerSession = req.getSession();
                         plannerSession.setAttribute("roleType", "planner");
+                        plannerSession.setAttribute("id", id);
                         resp.sendRedirect("/dashboard.jsp");
                         break;
                     case 3: // Customer
                         HttpSession customerSession = req.getSession();
                         customerSession.setAttribute("roleType", "customer");
+                        customerSession.setAttribute("id", id);
                         resp.sendRedirect("/dashboard.jsp");
                         break;
                     default:

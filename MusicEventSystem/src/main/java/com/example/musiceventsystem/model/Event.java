@@ -36,6 +36,18 @@ public class Event {
         this.othP = othP;
     }
 
+    public Event(Integer id, String name, Integer venue_id, String date, Integer staP, Integer mosP, Integer seaP, Integer vipP, Integer othP) {
+        this.id = id;
+        this.name = name;
+        this.venue_id = venue_id;
+        this.date = date;
+        this.staP = staP;
+        this.mosP = mosP;
+        this.seaP = seaP;
+        this.vipP = vipP;
+        this.othP = othP;
+    }
+
     public Integer getVipP() {
         return vipP;
     }

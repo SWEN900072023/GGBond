@@ -52,6 +52,7 @@
                         <th>Event</th>
                         <th>Venue</th>
                         <th>Date</th>
+                        <th>Price</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -61,11 +62,25 @@
                             <td>${event.name}</td>
                             <td>${event.venue}</td>
                             <td>${event.date}</td>
+                            <td>${event.staP}</td>
+                            <td>${event.mosP}</td>
+                            <td>${event.seaP}</td>
+                            <td>${event.vipP}</td>
+                            <td>${event.othP}</td>
                             <td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default "
                                             data-id="${event.id}"
-                                            data-username="${event.name}"
+                                            data-name="${event.name}"
+                                            data-venue="${event.venue}"
+                                            data-date="${event.date}"
+                                            data-stap="${event.staP}"
+                                            data-mosp="${event.mosP}"
+                                            data-seap="${event.vipP}"
+                                            data-vipp="${event.vipP}"
+                                            data-othp="${event.othP}"
+                                            data-toggle="modal"
+                                            data-target="#updateUserModal">
                                         <i class="fa fa-user-o">edit</i>
                                     </button>
 
@@ -192,53 +207,101 @@
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"
                                             aria-hidden="true">x</button>
-                                    <h4 class="modal-title" id="myModalLabel">Event Details</h4>
+                                    <h4 class="modal-title" id="myModalLabel">Creat Event</h4>
                                 </div>
                                 <div class="modal-body">
                                     <form class="form-horizontal" role="form">
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">ID</label>
+                                            <label for="user_id" class="col-sm-3 control-label">Event ID</label>
                                             <div class="col-sm-9">
-                                                <input type="text" readonly required class="form-control" id="id"
-                                                       name="id">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">username</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="username"
-                                                       name="username" placeholder="please enter username">
+                                                <input type="text" required readonly class="form-control" id="id"
+                                                       name="id" value="">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">password</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="password"
-                                                       name="password" value="" placeholder="please enter password">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">name</label>
+                                            <label for="user_id" class="col-sm-3 control-label">Event Name</label>
                                             <div class="col-sm-9">
                                                 <input type="text" required class="form-control" id="name"
-                                                       name="name" value="" placeholder="please enter name">
+                                                       name="name" value="">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">telephone</label>
+                                            <label for="user_id" class="col-sm-3 control-label">Select Planner</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="telephone"
-                                                       name="telephone" value="" placeholder="please enter telephone">
+                                                <select class="form-control" name="planner">
+                                                    <c:forEach items="${plannerList}" var="planner">
+                                                        <option value="${planner.id}">${planner.name}</option>
+                                                    </c:forEach>
+                                                </select>
                                             </div>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label for="user_id" class="col-sm-3 control-label">Select Venue</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" name="venue">
+                                                    <c:forEach items="${venueList}" var="venue">
+                                                        <option value="${venue.id}">${venue.name}</option>
+                                                    </c:forEach>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="user_id" class="col-sm-3 control-label">date</label>
+                                            <div class="col-sm-9">
+                                                <input type="date" required class="form-control" id="date"
+                                                       name="date" value="" placeholder="please enter date">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="user_id" class="col-sm-3 control-label">Standing Price</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" required class="form-control" id="stap"
+                                                       name="stap" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="user_id" class="col-sm-3 control-label">Mosh Price</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" required class="form-control" id="mosp"
+                                                       name="mosp" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="user_id" class="col-sm-3 control-label">Seated Price</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" required class="form-control" id="seap"
+                                                       name="seap" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="user_id" class="col-sm-3 control-label">VIP Price</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" required class="form-control" id="vipp"
+                                                       name="vipp" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="user_id" class="col-sm-3 control-label">Others Price</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" required class="form-control" id="othp"
+                                                       name="othp" value="">
+                                            </div>
+                                        </div>
+
                                     </form>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
-                                    <button type="submit" class="btn btn-primary">confirm</button>
+                                    <button type="submit" class="btn btn-primary">submit</button>
                                 </div>
                             </div>
                         </div>
@@ -289,18 +352,26 @@
     $('#updateUserModal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget)
         var id = button.data('id')
-        var username = button.data('username')
-        var password = button.data('password')
         var name = button.data('name')
-        var telephone = button.data('telephone')
+        var venue = button.data('venue')
+        var date = button.data('date')
+        var stap = button.data('stap')
+        var mosp = button.data('mosp')
+        var seap = button.data('seap')
+        var vipp = button.data('vipp')
+        var othp = button.data('othp')
         var modal = $(this)
 
         modal.find('.modal-title').text('Edit Event Details')
         modal.find('#id').val(id)
-        modal.find('#username').val(username)
-        modal.find('#password').val(password)
         modal.find('#name').val(name)
-        modal.find('#telephone').val(telephone)
+        modal.find('#venue').val(venue)
+        modal.find('#date').val(date)
+        modal.find('#stap').val(stap)
+        modal.find('#mosp').val(mosp)
+        modal.find('#seap').val(seap)
+        modal.find('#vipp').val(vipp)
+        modal.find('#othp').val(othp)
     })
 
     $('#delUserModal').on('show.bs.modal', function(event) {

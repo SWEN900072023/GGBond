@@ -36,6 +36,24 @@ public class EventPlannerMapper {
         return result;
     }
 
+    public Integer update(Integer eventId, Integer plannerId) {
+        Connection connection = JDBCUtil.getConnection();
+        String sql = "update EVENT_PLANNER_ASSOCIATION set planner_id=? where event_id=?";
+        PreparedStatement statement = null;
+        Integer result = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, plannerId);
+            statement.setInt(2, eventId);
+            result = statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtil.release(connection, statement, null);
+        }
+        return result;
+    }
+
     /**
      * Get event ids by planner id
      *
