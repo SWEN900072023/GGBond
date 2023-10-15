@@ -1,12 +1,13 @@
 # GGBond
   Project Name: Music Event System
+  link: https://music-event-system-m4bh.onrender.com/login.jsp
 
 # Team Members
 
 |  Name   | Student ID  |  E-mail |
 |  ----  | ----  | ----  |
 | Jie Zhou  | 1442449 | qiwang4@student.unimelb.edu.au |
-| Baorui Chen  | 1320469 | juxu1@student.unimelb.edu.au  |
+| Baorui Chen  | 1320469 | baoruic@student.unimelb.edu.au  |
 | liuming Teng | 1292608 | liumingt@student.unimelb.edu.au |
 | Linjing Bi  | 1369370 | linjingb@student.unimelb.edu.au |
 
@@ -53,9 +54,15 @@ Deliverables
 
 5. Usage Instructions:
 * Administrator Login:
-  *Username: [Admin Username]
-  *Password: [Admin Password]
-*Additional instructions on using existing data are provided. Make sure to refer to the provided data samples for a comprehensive understanding.
+  * Username: [Admin1]
+  * Password: [123123]
+* Planner Login
+  * Username: [joker]
+  * Password: [123]
+* Customer Login
+  * Username: [superman]
+  * Password: [123]
+* Additional instructions on using existing data are provided. Make sure to refer to the provided data samples for a comprehensive understanding.
 
 ## Part 3
 Deliverables

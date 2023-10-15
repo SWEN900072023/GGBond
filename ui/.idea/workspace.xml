@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f66e2784-0246-4990-9709-7262319a8e22" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../MusicEventSystem/.idea/artifacts/MusicEventSystem_Web_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MusicEventSystem/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MusicEventSystem/.idea/webContexts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.modules.xml.icloud" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.uiDesigner.xml.icloud" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MusicEventSystem/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/out/production/GGBond/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/out/production/GGBond/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/out/production/GGBond/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/out/production/GGBond/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/out/production/GGBond/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/out/production/GGBond/src/main/webapp/.index.jsp.icloud" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MusicEventSystem/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/api/HelloServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/controllers/Acontrol.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/CustomerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/CustomerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/DBManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/DBManage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/EventMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/EventMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/OrderMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/PlannerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/PlannerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/TicketsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/TicketsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/VenueMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/datasource/VenueMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/domain/Cmodel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/security/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/security/SecurityWebApplicationInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/src/main/java/com/example/musiceventsystem/security/WebSecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicEventSystem/src/main/webapp/web/WEB-INF/web.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "main",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+</project>

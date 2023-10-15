@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="MusicEventSystem:Web exploded">
+    <output-path>$PROJECT_DIR$/target/MusicEventSystem-1.0-SNAPSHOT</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="MusicEventSystem/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="MusicEventSystem" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
