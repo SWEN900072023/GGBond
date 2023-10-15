@@ -14,7 +14,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
+
+import static org.apache.taglibs.standard.functions.Functions.length;
 
 @WebServlet("/event")
 public class EventServlet extends HttpServlet {
@@ -41,10 +44,24 @@ public class EventServlet extends HttpServlet {
                     resp.sendRedirect("/accessdenied.jsp");
                     return;
                 }
-                List<Event> eventList = eventService.list();
-                req.setAttribute("list", eventList);
                 req.setAttribute("venueList", venueService.list());
                 req.setAttribute("plannerList", plannerService.list());
+                List<Event> eventList = eventService.list();
+                HttpSession mySession = req.getSession();
+                String role = mySession.getAttribute("roleType").toString();
+                if (role.equals("planner")) {
+                    Integer uid = (Integer) mySession.getAttribute("id");
+                    List<Integer> es = eventService.getEventIdsByPlannerId(uid);
+                    Iterator<Event> itEve = eventList.iterator();
+                    while (itEve.hasNext()) {
+                        Event e = itEve.next();
+                        if (!es.contains(e.getId())) {
+                            itEve.remove();
+                        }
+                    }
+                }
+                req.setAttribute("list", eventList);
+
                 req.getRequestDispatcher("manageevent.jsp").forward(req, resp);
                 break;
             case "search":
