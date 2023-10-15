@@ -41,11 +41,17 @@ public class OrderServlet extends HttpServlet {
                     resp.sendRedirect("/accessdenied.jsp");
                     return;
                 }
-                HttpSession customerSession = req.getSession();
-                Integer uid = (Integer) customerSession.getAttribute("id");
-                String suid = uid.toString();
-                req.setAttribute("list", this.orderService.search("customer_id", suid));
-                req.getRequestDispatcher("manageorder.jsp").forward(req, resp);
+                HttpSession mySession = req.getSession();
+                String role = mySession.getAttribute("roleType").toString();
+                if (role.equals("customer")) {
+                    Integer uid = (Integer) mySession.getAttribute("id");
+                    String suid = uid.toString();
+                    req.setAttribute("list", this.orderService.search("customer_id", suid));
+                    req.getRequestDispatcher("manageorder.jsp").forward(req, resp);
+                } else if (role.equals("admin")) {
+                    req.setAttribute("list", this.orderService.list());
+                    req.getRequestDispatcher("manageorder.jsp").forward(req, resp);
+                }
                 break;
             case "search":
                 if (!authorization.checkPermission(userRole, "order search")) {
@@ -109,11 +115,7 @@ public class OrderServlet extends HttpServlet {
                 String idStr = req.getParameter("id");
                 Integer id = Integer.parseInt(idStr);
                 orderService.delete(id);
-                customerSession = req.getSession();
-                uid = (Integer) customerSession.getAttribute("id");
-                suid = uid.toString();
-                req.setAttribute("list", this.orderService.search("customer_id", suid));
-                req.getRequestDispatcher("manageorder.jsp").forward(req, resp);
+                resp.sendRedirect("/order?method=list");
                 break;
             default:
                 resp.sendError(HttpServletResponse.SC_BAD_REQUEST);

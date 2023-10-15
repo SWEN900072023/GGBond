@@ -56,11 +56,14 @@ public class EventService {
         }
     }
 
-    public void update(Event event, Integer plannerId) {
+    public Integer update(Event event, Integer plannerId) {
         Integer r = eventMapper.update(event);
         if(r < 0){
             throw new RuntimeException("Event creation failure!");
-        };
+        } else if (r == 0) {
+            return 0;
+        }
+        ;
         Integer eventId = event.getId();
         if(eventPlannerMapper.update(eventId, plannerId) != 1){
             throw new RuntimeException("Event associate with planner failure!");
@@ -87,6 +90,7 @@ public class EventService {
         if(ticketsMapper.update(ticket) != 1){
             throw new RuntimeException("Ticket creation failure!");
         }
+        return 1;
     }
 
     public void delete(Integer id) {

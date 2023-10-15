@@ -63,6 +63,16 @@
                             <i class="fa fa-user-circle-o fa-fw"></i>
                         </span> Planner
                     </a>
+                    <a href="javascript:void(0)" class="list-group-item" onclick="change('/event?method=list',3)">
+                        <span class="" aria-hidden="true">
+                            <i class="fa fa-bookmark fa-fw"></i>
+                        </span> Event
+                    </a>
+                    <a href="javascript:void(0)" class="list-group-item" onclick="change('/order?method=list',4)">
+                        <span class="" aria-hidden="true">
+                            <i class="fa fa-address-card-o fa-fw"></i>
+                        </span> Order
+                    </a>
                 </c:when>
                 <c:when test="${roleType eq 'planner'}">
                     <a href="javascript:void(0)" class="list-group-item active" onclick="change('/event?method=list',0)">

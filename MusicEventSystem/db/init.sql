@@ -50,6 +50,7 @@ CREATE TABLE event (
     seaP int,
     vipP int,
     othP int,
+    version int DEFAULT 0,
     FOREIGN KEY (venue_id) REFERENCES venue(id)
 );
 

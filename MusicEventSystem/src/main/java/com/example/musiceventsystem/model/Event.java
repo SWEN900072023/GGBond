@@ -12,6 +12,18 @@ public class Event {
     private Integer vipP;
     private Integer othP;
 
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
+    private Integer version;
+
+
+
     public Event(String name, Integer venue_id, String date, Integer staP, Integer mosP, Integer seaP, Integer vipP, Integer othP) {
         this.name = name;
         this.venue_id = venue_id;
@@ -23,7 +35,7 @@ public class Event {
         this.othP = othP;
     }
 
-    public Event(Integer id, String name, Integer venue_id, String venue, String date, Integer staP, Integer mosP, Integer seaP, Integer vipP, Integer othP) {
+    public Event(Integer id, String name, Integer venue_id, String venue, String date, Integer staP, Integer mosP, Integer seaP, Integer vipP, Integer othP, Integer version) {
         this.id = id;
         this.name = name;
         this.venue_id = venue_id;
@@ -34,9 +46,10 @@ public class Event {
         this.seaP = seaP;
         this.vipP = vipP;
         this.othP = othP;
+        this.version = version;
     }
 
-    public Event(Integer id, String name, Integer venue_id, String date, Integer staP, Integer mosP, Integer seaP, Integer vipP, Integer othP) {
+    public Event(Integer id, String name, Integer venue_id, String date, Integer staP, Integer mosP, Integer seaP, Integer vipP, Integer othP, Integer version) {
         this.id = id;
         this.name = name;
         this.venue_id = venue_id;
@@ -46,6 +59,7 @@ public class Event {
         this.seaP = seaP;
         this.vipP = vipP;
         this.othP = othP;
+        this.version = version;
     }
 
     public Integer getVipP() {

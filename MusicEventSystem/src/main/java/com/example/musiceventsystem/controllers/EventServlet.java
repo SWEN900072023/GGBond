@@ -111,9 +111,15 @@ public class EventServlet extends HttpServlet {
                 vipp = Integer.parseInt(vippStr);
                 othpStr = req.getParameter("othp");
                 othp = Integer.parseInt(othpStr);
+                String versionStr = req.getParameter("version");
+                Integer version = Integer.parseInt(versionStr);
 
-                eventService.update(new Event(id, name, venueId, date, stap, mosp, seap, vipp, othp), plannerId);
-                resp.sendRedirect("/event?method=list");
+                Integer res = eventService.update(new Event(id, name, venueId, date, stap, mosp, seap, vipp, othp, version), plannerId);
+                if (res == 0) {
+                    resp.sendRedirect("/operationfailure.jsp");
+                } else if (res == 1) {
+                    resp.sendRedirect("/event?method=list");
+                }
                 break;
 
             case "delete":

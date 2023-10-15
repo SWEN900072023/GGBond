@@ -16,7 +16,7 @@ public class EventMapper {
      */
     public List<Event> list() {
         Connection connection = JDBCUtil.getConnection();
-        String sql = "select e.id, e.name, e.venue_id, v.name, e.date, e.stap, e.mosp, e.seap, e.vipp, e.othp from event e, venue v where e.venue_id = v.id;";
+        String sql = "select e.id, e.name, e.venue_id, v.name, e.date, e.stap, e.mosp, e.seap, e.vipp, e.othp, e.version from event e, venue v where e.venue_id = v.id;";
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         List<Event> list = new ArrayList<>();
@@ -34,7 +34,8 @@ public class EventMapper {
                 int sectionSea = resultSet.getInt(8);
                 int sectionVip = resultSet.getInt(9);
                 int sectionOth = resultSet.getInt(10);
-                list.add(new Event(id, name, venue_id, venue_name, date, sectionSta, sectionMos, sectionSea, sectionVip,sectionOth));
+                int version = resultSet.getInt(11);
+                list.add(new Event(id, name, venue_id, venue_name, date, sectionSta, sectionMos, sectionSea, sectionVip,sectionOth,version));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -46,7 +47,7 @@ public class EventMapper {
 
     public Event findById(int id) {
         Connection connection = JDBCUtil.getConnection();
-        String sql = "select e.id, e.name, e.venue_id, v.name, e.date, e.stap, e.mosp, e.seap, e.vipp, e.othp from event e, venue v where e.venue_id = v.id and e.id = ?";
+        String sql = "select e.id, e.name, e.venue_id, v.name, e.date, e.stap, e.mosp, e.seap, e.vipp, e.othp, e.version from event e, venue v where e.venue_id = v.id and e.id = ?";
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         Event event = null;
@@ -65,7 +66,8 @@ public class EventMapper {
                 int sectionSea = resultSet.getInt(8);
                 int sectionVip = resultSet.getInt(9);
                 int sectionOth = resultSet.getInt(10);
-                event = new Event(eventId, name, venue_id, venue_name, date, sectionSta, sectionMos, sectionSea, sectionVip, sectionOth);
+                int version = resultSet.getInt(11);
+                event = new Event(eventId, name, venue_id, venue_name, date, sectionSta, sectionMos, sectionSea, sectionVip, sectionOth, version);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -120,7 +122,7 @@ public class EventMapper {
      */
     public List<Event> search(String key, String value) {
         Connection connection = JDBCUtil.getConnection();
-        String sql = "SELECT e.id, e.name, e.venue_id, v.name AS venue_name, e.date, e.stap, e.mosp, e.seap, e.vipp, e.othp " +
+        String sql = "SELECT e.id, e.name, e.venue_id, v.name AS venue_name, e.date, e.stap, e.mosp, e.seap, e.vipp, e.othp, e.version " +
                 "FROM event e " +
                 "INNER JOIN venue v ON e.venue_id = v.id " +
                 "WHERE e.name LIKE ?";
@@ -142,7 +144,8 @@ public class EventMapper {
                 int sectionSea = resultSet.getInt("seap");
                 int sectionVip = resultSet.getInt("vipp");
                 int sectionOth = resultSet.getInt("othp");
-                list.add(new Event(id, name, venue_id, venue_name, date, sectionSta, sectionMos, sectionSea, sectionVip, sectionOth));
+                int version = resultSet.getInt("version");
+                list.add(new Event(id, name, venue_id, venue_name, date, sectionSta, sectionMos, sectionSea, sectionVip, sectionOth, version));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -160,7 +163,7 @@ public class EventMapper {
      */
     public Integer update(Event event) {
         Connection connection = JDBCUtil.getConnection();
-        String sql = "UPDATE event SET name = ?, venue_id = ?, date = ?, stap = ?, mosp = ?, seap = ?, vipp = ?, othp = ? WHERE id = ?";
+        String sql = "UPDATE event SET name = ?, venue_id = ?, date = ?, stap = ?, mosp = ?, seap = ?, vipp = ?, othp = ?, version = version+1 WHERE id = ? and version =?";
         PreparedStatement statement = null;
         Integer result = null;
         try {
@@ -174,12 +177,14 @@ public class EventMapper {
             statement.setInt(7, event.getVipP());
             statement.setInt(8, event.getOthP());
             statement.setInt(9, event.getId());
+            statement.setInt(10, event.getVersion());
             result = statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
             JDBCUtil.release(connection, statement, null);
         }
+        System.out.println(result);
         return result;
     }
 

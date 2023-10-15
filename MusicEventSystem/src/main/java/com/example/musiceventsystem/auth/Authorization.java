@@ -22,6 +22,9 @@ public class Authorization {
         adminPermissions.addAll(Arrays.asList("customer list","customer search", "customer save", "customer update", "customer delete"));
         adminPermissions.addAll(Arrays.asList("planner list","planner search", "planner save", "planner update", "planner delete"));
         adminPermissions.addAll(Arrays.asList("venue list","venue search", "venue save", "venue update", "venue delete"));
+        adminPermissions.addAll(Arrays.asList("event list", "event search", "event save", "event update", "event delete"));
+        adminPermissions.addAll(Arrays.asList("order list", "order search", "order save","order delete", "order update"));
+
     }
 
     private void initializePlanner() {
