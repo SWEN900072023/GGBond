@@ -54,6 +54,11 @@
                             <td>${order.time}</td>
                             <td>
                                 <div class="btn-group">
+                                    <button type="button" class="btn btn-danger "
+                                            data-id="${order.id}" data-toggle="modal"
+                                            onclick="" data-target="#delUserModal">
+                                        <i class="fa fa-user-times">delete</i>
+                                    </button>
                                 </div>
                             </td>
                         </tr>
@@ -99,6 +104,17 @@
         </div>
     </div>
 </div>
+
+<script>
+    $('#delUserModal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var id = button.data('id')
+        var modal = $(this)
+        modal.find('.modal-title').text('Delete Order')
+        modal.find('#deleteLabel').text('The order with ID ' + id + '  will be removed!')
+        modal.find('#id').val(id)
+    })
+</script>
 
 </body>
 </html>

@@ -4,13 +4,8 @@ import com.example.musiceventsystem.datasource.OrderMapper;
 import com.example.musiceventsystem.datasource.TicketsMapper;
 import com.example.musiceventsystem.model.Order;
 import com.example.musiceventsystem.model.Ticket;
-import com.example.musiceventsystem.util.JedisPoolUtil;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.UUID;
 
 public class OrderService {
     private OrderMapper orderMapper = new OrderMapper();
@@ -26,6 +21,28 @@ public class OrderService {
         }
         return orderMapper.search(key, value);
     }
+
+//    public Integer save(Order order) {
+//        int res = -1;
+//
+//        System.out.println(order.getTicketId());
+//        Ticket ticket = ticketsMapper.search(order.getTicketId());
+//        res = ticket.getStaN() - order.getNum();
+//        if (res < 0) {
+//            return -1;
+//        }
+//        ticket.setStaN(res);
+//        Integer ticketResult = ticketsMapper.update(ticket);
+//        if (ticketResult != 1) {
+//            throw new RuntimeException("Order creation failure!");
+//        }
+//        Integer result = orderMapper.save(order);
+//        if (result != 1) {
+//            throw new RuntimeException("Order creation failure!");
+//        }
+//
+//        return 1;
+//    }
 
     public Integer save(Order order) {
         int res = -1;
@@ -72,6 +89,15 @@ public class OrderService {
     }
 
     public void delete(Integer id) {
+        Order order = orderMapper.search("id", id.toString()).get(0);
+        Integer num = order.getNum();
+        Integer tickerId = order.getTicketId();
+        Ticket ticket = ticketsMapper.search(tickerId);
+        ticket.setStaN(ticket.getStaN() + num);
+        if (ticketsMapper.update(ticket) != 1) {
+            throw new RuntimeException("Ticket update failure!");
+        }
+
         Integer result = orderMapper.delete(id);
         if (result != 1) {
             throw new RuntimeException("Order deletion failure!");

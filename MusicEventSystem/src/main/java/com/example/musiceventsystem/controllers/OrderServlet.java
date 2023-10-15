@@ -109,7 +109,11 @@ public class OrderServlet extends HttpServlet {
                 String idStr = req.getParameter("id");
                 Integer id = Integer.parseInt(idStr);
                 orderService.delete(id);
-                resp.sendRedirect("/order?method=list");
+                customerSession = req.getSession();
+                uid = (Integer) customerSession.getAttribute("id");
+                suid = uid.toString();
+                req.setAttribute("list", this.orderService.search("customer_id", suid));
+                req.getRequestDispatcher("manageorder.jsp").forward(req, resp);
                 break;
             default:
                 resp.sendError(HttpServletResponse.SC_BAD_REQUEST);

@@ -52,6 +52,7 @@
                         <th>Event</th>
                         <th>Venue</th>
                         <th>Date</th>
+                        <th>Price</th>
                     </tr>
                     </thead>
                     <tbody>
