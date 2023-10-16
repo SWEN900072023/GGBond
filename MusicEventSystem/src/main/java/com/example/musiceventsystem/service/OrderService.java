@@ -60,9 +60,9 @@ public class OrderService {
                 "return 0\n" +
                 "end";
         String scriptLoad = jedis.scriptLoad(lua);
-        int l = ((int) jedis.setnx("ticketlock", value));
+        int lock = ((int) jedis.setnx("ticketlock", value));
         jedis.expire("ticketlock", 30);
-        if (l == 1) {
+        if (lock == 1) {
             System.out.println(order.getTicketId());
             Ticket ticket = ticketsMapper.search(order.getTicketId());
             res = ticket.getStaN() - order.getNum();
