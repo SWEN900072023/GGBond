@@ -6,96 +6,159 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.example.musiceventsystem.domain.Tickets; // Make sure to import the correct Tickets class
+import com.example.musiceventsystem.model.Ticket;
+import com.example.musiceventsystem.util.JDBCUtil;
 
 public class TicketsMapper {
-    private Connection connection;
-
-    public TicketsMapper(Connection connection) {
-        this.connection = connection;
-    }
-
-    public void insertTickets(String ticketId, String eventId, String sectionType, int soldNum, String seatId) {
+    public Integer save(Ticket ticket) {
+        Connection connection = JDBCUtil.getConnection();
+        String sql = "insert into ticket(event_id,event_name,venue_id,venue_name,san,sbn,scn,sdn,sen,sap,sbp,scp,sdp,sep) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        PreparedStatement statement = null;
+        Integer result = null;
         try {
-            String sql = "INSERT INTO TICKET (Ticket_ID, Event_ID, Section_Type, Sold_Num, Seat_ID) VALUES (?, ?, ?, ?, ?)";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, ticketId);
-            statement.setString(2, eventId);
-            statement.setString(3, sectionType);
-            statement.setInt(4, soldNum);
-            statement.setString(5, seatId);
-            statement.executeUpdate();
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, ticket.getEventId());
+            statement.setString(2, ticket.getEventName());
+            statement.setInt(3, ticket.getVenueId());
+            statement.setString(4, ticket.getVenueName());
+            statement.setInt(5, ticket.getStaN());
+            statement.setInt(6, ticket.getMosN());
+            statement.setInt(7, ticket.getSeaN());
+            statement.setInt(8, ticket.getVipN());
+            statement.setInt(9, ticket.getOthN());
+            statement.setInt(10, ticket.getStaP());
+            statement.setInt(11, ticket.getMosP());
+            statement.setInt(12, ticket.getSeaP());
+            statement.setInt(13, ticket.getVipP());
+            statement.setInt(14, ticket.getOthP());
+            result = statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtil.release(connection, statement, null);
         }
+        return result;
     }
 
-    public void updateTickets(String ticketId, String eventId, String sectionType, int soldNum, String seatId) {
+    public Integer update(Ticket ticket) {
+        Connection connection = JDBCUtil.getConnection();
+        String sql = "update ticket set event_id=?,event_name=?,venue_id=?,venue_name=?,san=?,sbn=?,scn=?,sdn=?,sen=?,sap=?,sbp=?,scp=?,sdp=?,sep=? where id = ?";
+        PreparedStatement statement = null;
+        Integer result = null;
         try {
-            String sql = "UPDATE TICKET SET Event_ID = ?, Section_Type = ?, Sold_Num = ?, Seat_ID = ? WHERE Ticket_ID = ?";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, eventId);
-            statement.setString(2, sectionType);
-            statement.setInt(3, soldNum);
-            statement.setString(4, seatId);
-            statement.setString(5, ticketId);
-            statement.executeUpdate();
+            statement = connection.prepareStatement(sql);
+
+            statement.setInt(1, ticket.getEventId());
+            statement.setString(2, ticket.getEventName());
+            statement.setInt(3, ticket.getVenueId());
+            statement.setString(4, ticket.getVenueName());
+            statement.setInt(5, ticket.getStaN());
+            statement.setInt(6, ticket.getMosN());
+            statement.setInt(7, ticket.getSeaN());
+            statement.setInt(8, ticket.getVipN());
+            statement.setInt(9, ticket.getOthN());
+            statement.setInt(10, ticket.getStaP());
+            statement.setInt(11, ticket.getMosP());
+            statement.setInt(12, ticket.getSeaP());
+            statement.setInt(13, ticket.getVipP());
+            statement.setInt(14, ticket.getOthP());
+            statement.setInt(15, ticket.getId());
+            result = statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtil.release(connection, statement, null);
         }
+        return result;
     }
 
-    public void deleteTickets(String ticketId) {
+    public List<Ticket> list() {
+        Connection connection = JDBCUtil.getConnection();
+        String sql = "select * from ticket";
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        List<Ticket> list = new ArrayList<>();
         try {
-            String sql = "DELETE FROM TICKET WHERE Ticket_ID = ?";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, ticketId);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public Tickets getTicketsById(String ticketId) {
-        try {
-            String sql = "SELECT * FROM TICKET WHERE Ticket_ID = ?";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, ticketId);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                String eventId = resultSet.getString("Event_ID");
-                String sectionType = resultSet.getString("Section_Type");
-                int soldNum = resultSet.getInt("Sold_Num");
-                String seatId = resultSet.getString("Seat_ID");
-
-                return new Tickets(ticketId, eventId, sectionType, soldNum, seatId);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public List<Tickets> getAllTickets() {
-        List<Tickets> ticketsList = new ArrayList<>();
-        try {
-            String sql = "SELECT * FROM TICKET";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            ResultSet resultSet = statement.executeQuery();
+            statement = connection.prepareStatement(sql);
+            resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                String ticketId = resultSet.getString("Ticket_ID");
-                String eventId = resultSet.getString("Event_ID");
-                String sectionType = resultSet.getString("Section_Type");
-                int soldNum = resultSet.getInt("Sold_Num");
-                String seatId = resultSet.getString("Seat_ID");
-
-                Tickets tickets = new Tickets(ticketId, eventId, sectionType, soldNum, seatId);
-                ticketsList.add(tickets);
+                int id = resultSet.getInt(1);
+                int eventId = resultSet.getInt(2);
+                String eventName = resultSet.getString(3);
+                int venueId = resultSet.getInt(4);
+                String venueName = resultSet.getString(5);
+                int san = resultSet.getInt(6);
+                int sbn = resultSet.getInt(7);
+                int scn = resultSet.getInt(8);
+                int sdn = resultSet.getInt(9);
+                int sen = resultSet.getInt(10);
+                int sap = resultSet.getInt(11);
+                int sbp = resultSet.getInt(12);
+                int scp = resultSet.getInt(13);
+                int sdp = resultSet.getInt(14);
+                int sep = resultSet.getInt(15);
+                list.add(new Ticket(id,eventId,eventName,venueId,venueName,san,sbn,scn,sdn,sen,sap,sbp,scp,sdp,sep));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtil.release(connection, statement, resultSet);
         }
-        return ticketsList;
+        return list;
+    }
+
+    public Integer searchIdbyEventId(Integer eventId) {
+        Integer id = 0;
+        Connection connection = JDBCUtil.getConnection();
+        String sql = "select * from ticket where event_id="+eventId;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                id = resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtil.release(connection, statement, resultSet);
+        }
+        return id;
+    }
+
+    public Ticket search(Integer id) {
+        Connection connection = JDBCUtil.getConnection();
+        String sql = "select * from ticket where id="+id;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        Ticket ticket = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+//                int id = resultSet.getInt(1);
+                int eventId = resultSet.getInt(2);
+                String eventName = resultSet.getString(3);
+                int venueId = resultSet.getInt(4);
+                String venueName = resultSet.getString(5);
+                int san = resultSet.getInt(6);
+                int sbn = resultSet.getInt(7);
+                int scn = resultSet.getInt(8);
+                int sdn = resultSet.getInt(9);
+                int sen = resultSet.getInt(10);
+                int sap = resultSet.getInt(11);
+                int sbp = resultSet.getInt(12);
+                int scp = resultSet.getInt(13);
+                int sdp = resultSet.getInt(14);
+                int sep = resultSet.getInt(15);
+                ticket = new  Ticket(id,eventId,eventName,venueId,venueName,san,sbn,scn,sdn,sen,sap,sbp,scp,sdp,sep);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtil.release(connection, statement, resultSet);
+        }
+        return ticket;
     }
 }

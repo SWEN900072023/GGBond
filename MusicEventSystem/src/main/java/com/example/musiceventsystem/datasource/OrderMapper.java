@@ -1,105 +1,136 @@
 package com.example.musiceventsystem.datasource;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.musiceventsystem.domain.Order;
+import com.example.musiceventsystem.model.Order;
+import com.example.musiceventsystem.util.JDBCUtil;
 
 public class OrderMapper {
-    private Connection connection;
-
-    public OrderMapper(Connection connection) {
-        this.connection = connection;
-    }
-
-    public void insertOrder(String orderId, String customerId, String eventId, java.sql.Date orderDate, int quantity, double totalPrice) {
+    public Integer save(Order order) {
+        Connection connection = JDBCUtil.getConnection();
+        String sql = "insert into customerorder(customer_id,ticket_id,event_id,event_name,section,price,num) values(?,?,?,?,?,?,?)";
+        PreparedStatement statement = null;
+        Integer result = null;
         try {
-            String sql = "INSERT INTO ORDERS (Order_ID, Customer_ID, Event_ID, Order_Date, Quantity, Total_Price) VALUES (?, ?, ?, ?, ?, ?)";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, orderId);
-            statement.setString(2, customerId);
-            statement.setString(3, eventId);
-            statement.setDate(4, orderDate);
-            statement.setInt(5, quantity);
-            statement.setDouble(6, totalPrice);
-            statement.executeUpdate();
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, order.getCustomerId());
+            statement.setInt(2, order.getTicketId());
+            statement.setInt(3, order.getEventId());
+            statement.setString(4, order.getEventName());
+            statement.setString(5, order.getSection());
+            statement.setInt(6, order.getPrice());
+            statement.setInt(7, order.getNum());
+            result = statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtil.release(connection, statement, null);
         }
+        return result;
     }
 
-    public void updateOrder(String orderId, String customerId, String eventId, java.sql.Date orderDate, int quantity, double totalPrice) {
+    public Integer update(Order order) {
+        Connection connection = JDBCUtil.getConnection();
+        String sql = "UPDATE customerorder SET customer_id = ?, ticket_id = ?, event_id = ?, event_name = ?, section = ?, price = ?, num = ?, timestamp = ? WHERE id = ?";
+        PreparedStatement statement = null;
+        Integer result = null;
         try {
-            String sql = "UPDATE ORDERS SET Customer_ID = ?, Event_ID = ?, Order_Date = ?, Quantity = ?, Total_Price = ? WHERE Order_ID = ?";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, customerId);
-            statement.setString(2, eventId);
-            statement.setDate(3, orderDate);
-            statement.setInt(4, quantity);
-            statement.setDouble(5, totalPrice);
-            statement.setString(6, orderId);
-            statement.executeUpdate();
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, order.getCustomerId());
+            statement.setInt(2, order.getTicketId());
+            statement.setInt(3, order.getEventId());
+            statement.setString(4, order.getEventName());
+            statement.setString(5, order.getSection());
+            statement.setInt(6, order.getPrice());
+            statement.setInt(7, order.getNum());
+            statement.setTimestamp(8, order.getTime());
+            statement.setInt(9, order.getId());
+            result = statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtil.release(connection, statement, null);
         }
+        return result;
     }
 
-    public void deleteOrder(String orderId) {
+    public Integer delete(Integer id) {
+        Connection connection = JDBCUtil.getConnection();
+        String sql = "DELETE FROM customerorder WHERE id = ?";
+        PreparedStatement statement = null;
+        Integer result = null;
         try {
-            String sql = "DELETE FROM ORDERS WHERE Order_ID = ?";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, orderId);
-            statement.executeUpdate();
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            result = statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtil.release(connection, statement, null);
         }
+        return result;
     }
 
-    public Order getOrderById(String orderId) {
-        try {
-            String sql = "SELECT * FROM ORDERS WHERE Order_ID = ?";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, orderId);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                String customerId = resultSet.getString("Customer_ID");
-                String eventId = resultSet.getString("Event_ID");
-                java.sql.Date orderDate = resultSet.getDate("Order_Date");
-                int quantity = resultSet.getInt("Quantity");
-                double totalPrice = resultSet.getDouble("Total_Price");
-
-                return new Order(orderId, customerId, eventId, orderDate, quantity, totalPrice);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public List<Order> getAllOrders() {
+    public List<Order> search(String key, String value) {
+        Connection connection = JDBCUtil.getConnection();
+        String sql = "SELECT * FROM customerorder WHERE "+key+"="+value;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
         List<Order> orders = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM ORDERS";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            ResultSet resultSet = statement.executeQuery();
+            statement = connection.prepareStatement(sql);
+            resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                String orderId = resultSet.getString("Order_ID");
-                String customerId = resultSet.getString("Customer_ID");
-                String eventId = resultSet.getString("Event_ID");
-                java.sql.Date orderDate = resultSet.getDate("Order_Date");
-                int quantity = resultSet.getInt("Quantity");
-                double totalPrice = resultSet.getDouble("Total_Price");
+                int id = resultSet.getInt("id");
+                int customerId = resultSet.getInt("customer_id");
+                int ticketId = resultSet.getInt("ticket_id");
+                int eventId = resultSet.getInt("event_id");
+                String eventName = resultSet.getString("event_name");
+                String section = resultSet.getString("section");
+                int price = resultSet.getInt("price");
+                int num = resultSet.getInt("num");
+                Timestamp timestamp = resultSet.getTimestamp("timestamp");
 
-                Order order = new Order(orderId, customerId, eventId, orderDate, quantity, totalPrice);
+                Order order = new Order(id, customerId, ticketId, eventId, eventName, section, price, num, timestamp);
                 orders.add(order);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtil.release(connection, statement, resultSet);
         }
         return orders;
+    }
+
+    public List<Order> list() {
+        Connection connection = JDBCUtil.getConnection();
+        String sql = "SELECT * FROM customerorder";
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        List<Order> list = new ArrayList<>();
+        try {
+            statement = connection.prepareStatement(sql);
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                int customerId = resultSet.getInt("customer_id");
+                int ticketId = resultSet.getInt("ticket_id");
+                int eventId = resultSet.getInt("event_id");
+                String eventName = resultSet.getString("event_name");
+                String section = resultSet.getString("section");
+                int price = resultSet.getInt("price");
+                int num = resultSet.getInt("num");
+                Timestamp timestamp = resultSet.getTimestamp("timestamp");
+                Order order = new Order(id, customerId, ticketId, eventId, eventName, section, price, num, timestamp);
+                list.add(order);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtil.release(connection, statement, resultSet);
+        }
+        return list;
     }
 }
