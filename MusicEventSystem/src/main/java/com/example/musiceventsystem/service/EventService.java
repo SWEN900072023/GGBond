@@ -126,8 +126,4 @@ public class EventService {
             throw new RuntimeException("Transaction failed", e);
         }
     }
-
-    public List<Integer> getEventIdsByPlannerId(Integer uid) {
-        return eventPlannerMapper.getEventIdsByPlannerId(uid);
-    }
 }
