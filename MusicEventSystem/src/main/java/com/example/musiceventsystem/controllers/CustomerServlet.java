@@ -27,6 +27,10 @@ public class CustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         String userRole = (String) session.getAttribute("roleType");
+        if (userRole == null || userRole.trim().isEmpty()) {
+            resp.sendRedirect("/login.jsp");
+            return;
+        }
         req.setCharacterEncoding("UTF-8");
         String method = req.getParameter("method");
         switch (method){

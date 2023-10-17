@@ -11,7 +11,7 @@ public class JedisPoolUtil {
             synchronized (JedisPoolUtil.class) {
                 if (jedisPool == null) {
                     JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
-                    jedisPoolConfig.setMaxTotal(20);
+                    jedisPoolConfig.setMaxTotal(50);
                     jedisPoolConfig.setMaxIdle(10);
                     jedisPool = new JedisPool(jedisPoolConfig, "13.236.134.190", 6379, 4000);
                 }

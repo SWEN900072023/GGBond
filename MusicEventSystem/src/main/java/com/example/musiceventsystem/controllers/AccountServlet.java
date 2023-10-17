@@ -35,28 +35,33 @@ public class AccountServlet extends HttpServlet {
                     case -1:
                         //req.setAttribute("ussernameError", str);
                         req.setAttribute("usernameError", "The username does not exist!");
+                        req.setAttribute("roleError", "Unknown role!");
                         req.getRequestDispatcher("login.jsp").forward(req, resp);
                         break;
                     case -2:
                         req.setAttribute("passwordError", "Wrong password!");
+                        req.setAttribute("roleError", "Unknown role!");
                         req.getRequestDispatcher("login.jsp").forward(req, resp);
                         break;
                     case 1: // Admin
                         HttpSession adminSession = req.getSession();
                         adminSession.setAttribute("roleType", "admin");
                         adminSession.setAttribute("id", id);
+                        adminSession.setAttribute("username", username);
                         resp.sendRedirect("/dashboard.jsp");
                         break;
                     case 2: // Planner
                         HttpSession plannerSession = req.getSession();
                         plannerSession.setAttribute("roleType", "planner");
                         plannerSession.setAttribute("id", id);
+                        plannerSession.setAttribute("username", username);
                         resp.sendRedirect("/dashboard.jsp");
                         break;
                     case 3: // Customer
                         HttpSession customerSession = req.getSession();
                         customerSession.setAttribute("roleType", "customer");
                         customerSession.setAttribute("id", id);
+                        customerSession.setAttribute("username", username);
                         resp.sendRedirect("/dashboard.jsp");
                         break;
                     default:
