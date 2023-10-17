@@ -77,8 +77,14 @@ The full report is available here.
 3. Database & Sample Data: Our application includes a populated database with realistic data samples essential for testing. Database details and sample data can be found here. 
 4. Usage Instructions:
 * Administrator Login:
-  * Username: [Admin Username]
-  * Password: [Admin Password]
+  * Username: [Admin1]
+  * Password: [123123]
+* Planner Login
+  * Username: [joker]
+  * Password: [123]
+* Customer Login
+  * Username: [superman]
+  * Password: [123]
 Follow the provided data samples to comprehend the application's data flow. Ensure you refer to the data samples for understanding.
 
 Additional Information:
