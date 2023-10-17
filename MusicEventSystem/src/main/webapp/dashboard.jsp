@@ -102,7 +102,7 @@
             </c:choose>
         </div>
         <!--right content-->
-        <iframe style="width: 81%; height: 800px; border: 0px;" src="/venue?method=list"></iframe>
+        <iframe style="width: 81%; height: 800px; border: 0px;" src="/home.jsp"></iframe>
     </div>
 </div>
 <div class="footer">

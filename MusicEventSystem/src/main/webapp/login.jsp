@@ -13,8 +13,8 @@
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript">
-        if (window.top !== window.self) { // 检查当前窗口是否在iframe中
-            window.top.location = window.self.location; // 如果在iframe中，则将整个窗口导航到当前URL
+        if (window.top !== window.self) { 
+            window.top.location = window.self.location;
         }
     </script>
 </head>
