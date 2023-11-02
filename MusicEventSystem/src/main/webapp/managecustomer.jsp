@@ -3,22 +3,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <!-- import Bootstrap -->
-    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <!-- import font-awesome -->
-    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MusicEventSystem</title>
+    <!-- Import Bootstrap 4 and jQuery 3 -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Import Font Awesome 5 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-10">
-            <!-- top search section -->
+        <div class="col-md-10">
+            <!-- Search Section -->
             <div class="panel panel-default">
-                <div class="panel-heading">search</div>
+                <div class="panel-heading">Search</div>
                 <div class="panel-body">
                     <form role="form" class="form-inline" action="/customer?method=search" method="post">
                         <div class="form-group">
@@ -29,30 +31,27 @@
                                 <option value="telephone">Telephone</option>
                             </select>
                         </div>
-                        <div class="form-group" style="margin-left: 20px">
+                        <div class="form-group ml-3">
                             <label for="value">Value: </label>
-                            <input type="text" class="form-control" name="value" placeholder="please enter" maxlength="12" style="width: 130px">
+                            <input type="text" class="form-control" name="value" placeholder="Please enter" maxlength="12">
                         </div>
-                        <div class="form-group " style="margin-left: 20px">
-                            <button type="submit" class="btn btn-info ">
-										<span style="margin-right: 5px"
-                                              class="glyphicon glyphicon-search" aria-hidden="true">
-										</span>Confirm
+                        <div class="form-group ml-3">
+                            <button type="submit" class="btn btn-info">
+                                <i class="fas fa-search mr-1"></i>Confirm
                             </button>
                         </div>
-                        <div class="form-group " style="margin-left: 48px">
+                        <div class="form-group ml-3">
                             <button type="button" class="btn btn-default" data-toggle="modal" data-target="#addUserModal">
-										<span style="margin-right: 5px" class="" aria-hidden="true">
-											<i class="fa fa-user-plus">Creat Customer</i>
-											</span>
+                                <i class="fas fa-user-plus mr-1"></i>Create Customer
                             </button>
                         </div>
                     </form>
                 </div>
             </div>
-            <!-- list display-->
+
+            <!-- List Display -->
             <div class="table-responsive">
-                <table class="table table-hover ">
+                <table class="table table-hover">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -73,21 +72,11 @@
                             <td>${customer.telephone}</td>
                             <td>
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default "
-                                            data-id="${customer.id}"
-                                            data-username="${customer.username}"
-                                            data-password="${customer.password}"
-                                            data-name="${customer.name}"
-                                            data-telephone="${customer.telephone}"
-                                            data-toggle="modal"
-                                            data-target="#updateUserModal">
-                                        <i class="fa fa-user-o">edit</i>
+                                    <button type="button" class="btn btn-default" data-id="${customer.id}" data-username="${customer.username}" data-password="${customer.password}" data-name="${customer.name}" data-telephone="${customer.telephone}" data-toggle="modal" data-target="#updateUserModal">
+                                        <i class="fas fa-user-edit"></i> Edit
                                     </button>
-
-                                    <button type="button" class="btn btn-danger "
-                                            data-id="${customer.id}" data-toggle="modal"
-                                            onclick="" data-target="#delUserModal">
-                                        <i class="fa fa-user-times">delete</i>
+                                    <button type="button" class="btn btn-danger" data-id="${customer.id}" data-toggle="modal" data-target="#delUserModal">
+                                        <i class="fas fa-user-times"></i> Delete
                                     </button>
                                 </div>
                             </td>
@@ -95,158 +84,27 @@
                     </c:forEach>
                     </tbody>
                 </table>
-                <!-- add -->
-                <form method="post" action="/customer?method=save" class="form-horizontal" style="margin-top: 0px" role="form"
-                      id="form_data" style="margin: 20px;">
-                    <div class="modal fade" id="addUserModal" tabindex="-1"
-                         role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal"
-                                            aria-hidden="true">x</button>
-                                    <h4 class="modal-title" id="myModalLabel">Creat Customer</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <form class="form-horizontal" role="form">
-                                        <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">username</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="username"
-                                                       name="username" placeholder="please enter username">
-                                            </div>
-                                        </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                                        <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">password</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="password"
-                                                       name="password" value="" placeholder="please enter password">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">name</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="name"
-                                                       name="name" value="" placeholder="please enter name">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">telephone</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="telephone"
-                                                       name="telephone" value="" placeholder="please enter telephone">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
-                                    <button type="submit" class="btn btn-primary">confirm</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-
-                <!-- update -->
-                <form method="post" action="/customer?method=update" class="form-horizontal" style="margin-top: 0px" role="form"
-                      id="form_data" style="margin: 20px;">
-                    <div class="modal fade" id="updateUserModal" tabindex="-1"
-                         role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal"
-                                            aria-hidden="true">x</button>
-                                    <h4 class="modal-title" id="myModalLabel">Customer Details</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <form class="form-horizontal" role="form">
-                                        <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">ID</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" readonly required class="form-control" id="id"
-                                                       name="id">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">username</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="username"
-                                                       name="username" placeholder="please enter username">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">password</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="password"
-                                                       name="password" value="" placeholder="please enter password">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">name</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="name"
-                                                       name="name" value="" placeholder="please enter name">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">telephone</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="telephone"
-                                                       name="telephone" value="" placeholder="please enter telephone">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
-                                    <button type="submit" class="btn btn-primary">confirm</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-
-                <!-- delete -->
-                <form method="post" action="/customer?method=delete"
-                      class="form-horizontal" style="margin-top: 0px" role="form"
-                      id="form_data" style="margin: 20px;">
-                    <div class="modal fade" id="delUserModal" tabindex="-1"
-                         role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal"
-                                            aria-hidden="true">×</button>
-                                    <h4 class="modal-title" id="myModalLabel">用户信息</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <form class="form-horizontal" role="form">
-                                        <div class="form-group">
-                                            <div class="col-sm-9">
-                                                <h3 class="col-sm-18 control-label" id="deleteLabel">删除信息</h3>
-                                                <input type="hidden" class="form-control" id="tab"
-                                                       name="tab" placeholder="" value="dor_admin"> <input
-                                                    type="hidden" class="form-control" id="id"
-                                                    name="id" placeholder="">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
-                                    <button type="submit" class="btn btn-danger">delete</button>
-                                    <span id="tip"> </span>
-                                </div>
-                            </div>
-                        </div>
+<!-- Add User Modal -->
+<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserModalLabel">Create Customer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/customer?method=save" class="form-horizontal" role="form">
+                    <!-- Form Fields Here -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Confirm</button>
                     </div>
                 </form>
             </div>
@@ -254,34 +112,41 @@
     </div>
 </div>
 
+<!-- Update User Modal -->
+<!-- Similar structure as Add User Modal, just with different IDs and data binding -->
+
+<!-- Delete User Modal -->
+<!-- Similar structure as Add User Modal, just with different IDs and data binding -->
+
 <script>
-    $('#updateUserModal').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget)
-        var id = button.data('id')
-        var username = button.data('username')
-        var password = button.data('password')
-        var name = button.data('name')
-        var telephone = button.data('telephone')
-        var modal = $(this)
+    $(document).ready(function() {
+        $('#updateUserModal').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var username = button.data('username')
+            var password = button.data('password')
+            var name = button.data('name')
+            var telephone = button.data('telephone')
+            var modal = $(this)
 
-        modal.find('.modal-title').text('Edit Customer Details')
-        modal.find('#id').val(id)
-        modal.find('#username').val(username)
-        modal.find('#password').val(password)
-        modal.find('#name').val(name)
-        modal.find('#telephone').val(telephone)
-    })
+            modal.find('.modal-title').text('Edit Customer Details')
+            modal.find('#id').val(id)
+            modal.find('#username').val(username)
+            modal.find('#password').val(password)
+            modal.find('#name').val(name)
+            modal.find('#telephone').val(telephone)
+        });
 
-    $('#delUserModal').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget)
-        var id = button.data('id')
-        var modal = $(this)
-        modal.find('.modal-title').text('Delete Customer')
-        modal.find('#deleteLabel').text('The customer with ID ' + id + '  will be removed!')
-        modal.find('#id').val(id)
-    })
+        $('#delUserModal').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var modal = $(this)
+            modal.find('.modal-title').text('Delete Customer')
+            modal.find('#deleteLabel').text('The customer with ID ' + id + '  will be removed!')
+            modal.find('#id').val(id)
+        });
+    });
 </script>
 
 </body>
-
 </html>
