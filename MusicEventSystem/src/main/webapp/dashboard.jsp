@@ -4,10 +4,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Music Event System Dashboard</title>
-
     <!-- Bootstrap CSS (latest version from CDN) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Font Awesome (latest version from CDN) -->
@@ -23,6 +21,11 @@
         }
         .list-group-item {
             cursor: pointer;
+        }
+        iframe {
+            width: 100%;
+            height: 800px;
+            border: none;
         }
     </style>
 </head>
@@ -45,37 +48,19 @@
     <div class="row">
         <div class="col-md-2">
             <div class="list-group">
-                <c:choose>
-                    <c:when test="${roleType eq 'admin'}">
-                        <a href="#" class="list-group-item active" onclick="change('/venue?method=list',0)">
-                            <i class="fa fa-home fa-fw"></i> Venue
-                        </a>
-                        <!-- Other admin links go here -->
-                    </c:when>
-                    <c:when test="${roleType eq 'planner'}">
-                        <a href="#" class="list-group-item active" onclick="change('/event?method=list',0)">
-                            <i class="fa fa-bookmark fa-fw"></i> Event
-                        </a>
-                        <!-- Other planner links go here -->
-                    </c:when>
-                    <c:when test="${roleType eq 'customer'}">
-                        <a href="#" class="list-group-item active" onclick="change('/purchase?method=list',0)">
-                            <i class="fa fa-bookmark-o fa-fw"></i> Purchase
-                        </a>
-                        <!-- Other customer links go here -->
-                    </c:when>
-                </c:choose>
+                <!-- Dynamic list items based on user role -->
             </div>
         </div>
         <div class="col-md-10">
-            <iframe style="width: 100%; height: 800px; border: 0;" src="/home.jsp"></iframe>
+            <iframe src="/home.jsp"></iframe>
         </div>
     </div>
 </div>
-<div class="footer">
+<footer class="footer">
     <!-- Footer content goes here -->
-</div>
+</footer>
 
+<!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

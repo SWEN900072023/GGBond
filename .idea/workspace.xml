@@ -9,13 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c768f040-752e-4d69-ba93-112bf2c1997c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicEventSystem/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/MusicEventSystem/src/main/webapp/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicEventSystem/src/main/webapp/insufficientstock.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/MusicEventSystem/src/main/webapp/insufficientstock.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicEventSystem/src/main/webapp/serverbusy.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/MusicEventSystem/src/main/webapp/serverbusy.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="c768f040-752e-4d69-ba93-112bf2c1997c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -205,12 +199,7 @@
       <workItem from="1697346811172" duration="394000" />
       <workItem from="1697446205544" duration="658000" />
       <workItem from="1697507675855" duration="3773000" />
-<<<<<<< Updated upstream
-      <workItem from="1698231041187" duration="959000" />
-      <workItem from="1698298391001" duration="3334000" />
-=======
-      <workItem from="1698978855826" duration="3160000" />
->>>>>>> Stashed changes
+      <workItem from="1698978855826" duration="3772000" />
     </task>
     <servers />
   </component>
