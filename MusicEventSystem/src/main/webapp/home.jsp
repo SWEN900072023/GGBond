@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< Updated upstream
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,10 +20,23 @@
         .modal-body {
             max-height: calc(100vh - 210px);
             overflow-y: auto;
+=======
+    <meta charset="utf-8" />
+    <title>Welcome</title>
+    <!-- Import Bootstrap CSS from CDN for better performance -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Import Font Awesome -->
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Styles can be moved to an external stylesheet if necessary -->
+    <style>
+        .container-margin-top {
+            margin-top: 100px;
+>>>>>>> Stashed changes
         }
     </style>
 </head>
 <body>
+<<<<<<< Updated upstream
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-10">
@@ -178,5 +192,17 @@
         modal.find('#id').val(id);
     });
 </script>
+=======
+<div class="container text-center container-margin-top">
+    <h1>Welcome</h1>
+</div>
+
+<!-- Import jQuery -->
+<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<!-- Then Bootstrap JS -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- If you need bootstrap-select, ensure you include it after jQuery and Bootstrap -->
+<script src="./bootstrap/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+>>>>>>> Stashed changes
 </body>
 </html>
